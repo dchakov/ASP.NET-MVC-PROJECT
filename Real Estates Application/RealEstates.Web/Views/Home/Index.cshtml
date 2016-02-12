@@ -1,0 +1,72 @@
+﻿@model RealEstates.Web.ViewModels.Home.HomePageViewModel
+@{
+    ViewBag.Title = "Home Page";
+}
+
+<div class="row">
+    <h4>Cities</h4>
+    @foreach (var city in Model.Cities)
+    {
+        <div class="col-md-3">
+            @Html.ActionLink(city.Name, "RealEstatesByCity", new { name = city.Name })
+        </div>
+    }
+</div>
+
+<div class="row">
+    <h4>Brokers:</h4>
+    @foreach (var user in Model.Users)
+    {
+        <div class="col-md-4">
+            @Html.ActionLink(user.UserName, "Index", new { id = user.Id })
+        </div>
+    }
+</div>
+
+<div class="row">
+    <h4>Most recent</h4>
+
+    @foreach (var item in Model.RealEstates)
+    {
+        <div class="row">
+            <a href="@item.Url">
+                <div class="col-md-1">
+                    @Html.DisplayFor(model => item.City)
+                </div>
+                <div class="col-md-1">
+                    @Html.DisplayFor(modelItem => item.Title)
+                </div>
+                <div class="col-md-1">
+                    @Html.DisplayFor(modelItem => item.Description)
+                </div>
+                <div class="col-md-1">
+                    @Html.DisplayFor(modelItem => item.Address)
+                </div>
+                <div class="col-md-1">
+                    @Html.DisplayFor(modelItem => item.Contact)
+                </div>
+                <div class="col-md-1">
+                    @Html.DisplayFor(modelItem => item.ConstructionYear)
+                </div>
+                <div class="col-md-1">
+                    @Html.DisplayFor(modelItem => item.SellingPrice)
+                </div>
+                <div class="col-md-1">
+                    @Html.DisplayFor(modelItem => item.RentingPrice)
+                </div>
+                <div class="col-md-1">
+                    @Html.DisplayFor(modelItem => item.Type)
+                </div>
+                <div class="col-md-1">
+                    @Html.DisplayFor(modelItem => item.CreatedOn)
+                </div>
+                <div class="col-md-1">
+                    @Html.DisplayFor(modelItem => item.Bedrooms)
+                </div>
+                <div class="col-md-1">
+                    @Html.DisplayFor(modelItem => item.SquareMeter)
+                </div>
+            </a>
+        </div>
+    }
+</div>
