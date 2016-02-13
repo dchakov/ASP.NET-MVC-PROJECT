@@ -1,11 +1,11 @@
 namespace RealEstates.Data.Migrations
 {
-    using System;
-    using System.Data.Entity.Migrations;
-    using System.Linq;
     using Microsoft.AspNet.Identity;
     using Microsoft.AspNet.Identity.EntityFramework;
     using Model;
+    using System;
+    using System.Data.Entity.Migrations;
+    using System.Linq;
 
     public sealed class Configuration : DbMigrationsConfiguration<RealEstatesDbContext>
     {
