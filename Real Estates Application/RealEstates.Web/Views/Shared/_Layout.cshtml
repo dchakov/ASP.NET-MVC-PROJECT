@@ -28,7 +28,7 @@
                     }
                     @if (User.IsInRole("Administrator"))
                     {
-                        @Html.Action("Menu", "Admin", routeValues: new { Area = "Administration" })
+                        @Html.Action("Menu", "Admin", routeValues: new { Area = "Administration", @class = "navbar-brand" })
                     }
                 </ul>
                 @Html.Partial("_LoginPartial")

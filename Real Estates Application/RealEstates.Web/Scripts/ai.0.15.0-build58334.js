@@ -203,7 +203,7 @@ var Microsoft;
                 return str.toString().toLowerCase() === "true";
             };
             Util.getCookie = function (name) {
-                var value = string.Empty;
+                var value = "";
                 if (name && name.length) {
                     var cookieName = name + "=";
                     var cookies = Util.document.cookie.split(";");
@@ -224,11 +224,11 @@ var Microsoft;
             Util.trim = function (str) {
                 if (typeof str !== "string")
                     return str;
-                return str.replace(/^\s+|\s+$/g, string.Empty);
+                return str.replace(/^\s+|\s+$/g, "");
             };
             Util.newGuid = function () {
                 var hexValues = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "A", "B", "C", "D", "E", "F"];
-                var oct = string.Empty, tmp;
+                var oct = "", tmp;
                 for (var a = 0; a < 4; a++) {
                     tmp = (4294967296 * Math.random()) | 0;
                     oct += hexValues[tmp & 0xF] + hexValues[tmp >> 4 & 0xF] + hexValues[tmp >> 8 & 0xF] + hexValues[tmp >> 12 & 0xF] + hexValues[tmp >> 16 & 0xF] + hexValues[tmp >> 20 & 0xF] + hexValues[tmp >> 24 & 0xF] + hexValues[tmp >> 28 & 0xF];
@@ -266,10 +266,10 @@ var Microsoft;
                 if (isNaN(totalms) || totalms < 0) {
                     totalms = 0;
                 }
-                var ms = string.Empty + totalms % 1000;
-                var sec = string.Empty + Math.floor(totalms / 1000) % 60;
-                var min = string.Empty + Math.floor(totalms / (1000 * 60)) % 60;
-                var hour = string.Empty + Math.floor(totalms / (1000 * 60 * 60)) % 24;
+                var ms = "" + totalms % 1000;
+                var sec = "" + Math.floor(totalms / 1000) % 60;
+                var min = "" + Math.floor(totalms / (1000 * 60)) % 60;
+                var hour = "" + Math.floor(totalms / (1000 * 60 * 60)) % 24;
                 ms = ms.length === 1 ? "00" + ms : ms.length === 2 ? "0" + ms : ms;
                 sec = sec.length < 2 ? "0" + sec : sec;
                 min = min.length < 2 ? "0" + min : min;
@@ -277,7 +277,7 @@ var Microsoft;
                 return hour + ":" + min + ":" + sec + "." + ms;
             };
             Util.isCrossOriginError = function (message, url, lineNumber, columnNumber, error) {
-                return (message == "Script error." || message == "Script error") && url == string.Empty && lineNumber == 0 && columnNumber == 0 && error == null;
+                return (message == "Script error." || message == "Script error") && url == "" && lineNumber == 0 && columnNumber == 0 && error == null;
             };
             Util.dump = function (object) {
                 var objectTypeDump = Object.prototype.toString.call(object);
@@ -714,7 +714,7 @@ var Microsoft;
                 return score * 100;
             };
             SamplingScoreGenerator.getSamplingHashCode = function (input) {
-                if (input == string.Empty) {
+                if (input == "") {
                     return 0;
                 }
                 var hash = 5381;
@@ -1056,20 +1056,20 @@ var Microsoft;
                 xhr.open("POST", this._config.endpointUrl(), isAsync);
                 xhr.setRequestHeader("Content-type", "application/json");
                 xhr.onreadystatechange = function () { return Sender._xhrReadyStateChange(xhr, payload); };
-                xhr.onerror = function (event) { return Sender._onError(payload, xhr.responseText || xhr.response || string.Empty, event); };
+                xhr.onerror = function (event) { return Sender._onError(payload, xhr.responseText || xhr.response || "", event); };
                 xhr.send(payload);
             };
             Sender.prototype._xdrSender = function (payload, isAsync) {
                 var xdr = new XDomainRequest();
                 xdr.onload = function () { return Sender._xdrOnLoad(xdr, payload); };
-                xdr.onerror = function (event) { return Sender._onError(payload, xdr.responseText || string.Empty, event); };
+                xdr.onerror = function (event) { return Sender._onError(payload, xdr.responseText || "", event); };
                 xdr.open('POST', this._config.endpointUrl());
                 xdr.send(payload);
             };
             Sender._xhrReadyStateChange = function (xhr, payload) {
                 if (xhr.readyState === 4) {
                     if ((xhr.status < 200 || xhr.status >= 300) && xhr.status !== 0) {
-                        Sender._onError(payload, xhr.responseText || xhr.response || string.Empty);
+                        Sender._onError(payload, xhr.responseText || xhr.response || "");
                     }
                     else {
                         Sender._onSuccess(payload);
@@ -1077,11 +1077,11 @@ var Microsoft;
                 }
             };
             Sender._xdrOnLoad = function (xdr, payload) {
-                if (xdr && (xdr.responseText + string.Empty === "200" || xdr.responseText === string.Empty)) {
+                if (xdr && (xdr.responseText + "" === "200" || xdr.responseText === "")) {
                     Sender._onSuccess(payload);
                 }
                 else {
-                    Sender._onError(payload, xdr && xdr.responseText || string.Empty);
+                    Sender._onError(payload, xdr && xdr.responseText || "");
                 }
             };
             Sender._onError = function (payload, message, event) {
@@ -2206,7 +2206,7 @@ var Microsoft;
             AppInsights.prototype.startTrackPage = function (name) {
                 try {
                     if (typeof name !== "string") {
-                        name = window.document && window.document.title || string.Empty;
+                        name = window.document && window.document.title || "";
                     }
                     this._pageTracking.start(name);
                 }
@@ -2217,10 +2217,10 @@ var Microsoft;
             AppInsights.prototype.stopTrackPage = function (name, url, properties, measurements) {
                 try {
                     if (typeof name !== "string") {
-                        name = window.document && window.document.title || string.Empty;
+                        name = window.document && window.document.title || "";
                     }
                     if (typeof url !== "string") {
-                        url = window.location && window.location.href || string.Empty;
+                        url = window.location && window.location.href || "";
                     }
                     this._pageTracking.stop(name, url, properties, measurements);
                     if (this.config.autoTrackPageVisitTime) {
@@ -2234,10 +2234,10 @@ var Microsoft;
             AppInsights.prototype.trackPageView = function (name, url, properties, measurements) {
                 try {
                     if (typeof name !== "string") {
-                        name = window.document && window.document.title || string.Empty;
+                        name = window.document && window.document.title || "";
                     }
                     if (typeof url !== "string") {
-                        url = window.location && window.location.href || string.Empty;
+                        url = window.location && window.location.href || "";
                     }
                     this.trackPageViewInternal(name, url, properties, measurements);
                     if (this.config.autoTrackPageVisitTime) {

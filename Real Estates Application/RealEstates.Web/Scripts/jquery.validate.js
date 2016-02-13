@@ -24,9 +24,11 @@
  */
 
 (function($) {
+
 $.extend($.fn, {
 	// http://docs.jquery.com/Plugins/Validation/validate
 	validate: function( options ) {
+
 		// if nothing is selected, return nothing; can't chain anyway
 		if ( !this.length ) {
 			if ( options && options.debug && window.console ) {
@@ -48,6 +50,7 @@ $.extend($.fn, {
 		$.data( this[0], "validator", validator );
 
 		if ( validator.settings.onsubmit ) {
+
 			this.validateDelegate( ":submit", "click", function( event ) {
 				if ( validator.settings.submitHandler ) {
 					validator.submitButton = event.target;
@@ -184,9 +187,9 @@ $.extend($.fn, {
 // Custom selectors
 $.extend($.expr[":"], {
 	// http://docs.jquery.com/Plugins/Validation/blank
-	blank: function( a ) { return !$.trim(string.Empty + $(a).val()); },
+	blank: function( a ) { return !$.trim("" + $(a).val()); },
 	// http://docs.jquery.com/Plugins/Validation/filled
-	filled: function( a ) { return !!$.trim(string.Empty + $(a).val()); },
+	filled: function( a ) { return !!$.trim("" + $(a).val()); },
 	// http://docs.jquery.com/Plugins/Validation/unchecked
 	unchecked: function( a ) { return !$(a).prop("checked"); }
 });
@@ -221,6 +224,7 @@ $.validator.format = function( source, params ) {
 };
 
 $.extend($.validator, {
+
 	defaults: {
 		messages: {},
 		groups: {},
@@ -251,7 +255,7 @@ $.extend($.validator, {
 			}
 		},
 		onkeyup: function( element, event ) {
-			if ( event.which === 9 && this.elementValue(element) === string.Empty ) {
+			if ( event.which === 9 && this.elementValue(element) === "" ) {
 				return;
 			} else if ( element.name in this.submitted || element === this.lastElement ) {
 				this.element(element);
@@ -310,6 +314,7 @@ $.extend($.validator, {
 	autoCreateRanges: false,
 
 	prototype: {
+
 		init: function() {
 			this.labelContainer = $(this.settings.errorLabelContainer);
 			this.errorContext = this.labelContainer.length && this.labelContainer || $(this.currentForm);
@@ -337,7 +342,7 @@ $.extend($.validator, {
 
 			function delegate(event) {
 				var validator = $.data(this[0].form, "validator"),
-					eventType = "on" + event.type.replace(/^validate/, string.Empty);
+					eventType = "on" + event.type.replace(/^validate/, "");
 				if ( validator.settings[eventType] ) {
 					validator.settings[eventType].call(validator, this[0], event);
 				}
@@ -538,7 +543,7 @@ $.extend($.validator, {
 			}
 
 			if ( typeof val === "string" ) {
-				return val.replace(/\r/g, string.Empty);
+				return val.replace(/\r/g, "");
 			}
 			return val;
 		},
@@ -554,6 +559,7 @@ $.extend($.validator, {
 			for (var method in rules ) {
 				var rule = { method: method, parameters: rules[method] };
 				try {
+
 					result = $.validator.methods[method].call( this, val, element, rule.parameters );
 
 					// if a method indicates that the field is optional and therefore valid,
@@ -695,7 +701,7 @@ $.extend($.validator, {
 				label = $("<" + this.settings.errorElement + ">")
 					.attr("for", this.idOrName(element))
 					.addClass(this.settings.errorClass)
-					.html(message || string.Empty);
+					.html(message || "");
 				if ( this.settings.wrapper ) {
 					// make sure the element is visible, even in IE
 					// actually showing the wrapped element is handled elsewhere
@@ -710,7 +716,7 @@ $.extend($.validator, {
 				}
 			}
 			if ( !message && this.settings.success ) {
-				label.text(string.Empty);
+				label.text("");
 				if ( typeof this.settings.success === "string" ) {
 					label.addClass( this.settings.success );
 				} else {
@@ -810,6 +816,7 @@ $.extend($.validator, {
 				message: this.defaultMessage( element, "remote" )
 			});
 		}
+
 	},
 
 	classRuleSettings: {
@@ -856,8 +863,8 @@ $.extend($.validator, {
 			if ( method === "required" ) {
 				value = $element.get(0).getAttribute(method);
 				// Some browsers return an empty string for the required attribute
-				// and non-HTML5 browsers might have required=string.Empty markup
-				if ( value === string.Empty ) {
+				// and non-HTML5 browsers might have required="" markup
+				if ( value === "" ) {
 					value = true;
 				}
 				// force non-HTML5 browsers to return bool
@@ -998,6 +1005,7 @@ $.extend($.validator, {
 	},
 
 	methods: {
+
 		// http://docs.jquery.com/Plugins/Validation/Methods/required
 		required: function( value, element, param ) {
 			// check if dependency is met
@@ -1061,7 +1069,7 @@ $.extend($.validator, {
 				nDigit = 0,
 				bEven = false;
 
-			value = value.replace(/\D/g, string.Empty);
+			value = value.replace(/\D/g, "");
 
 			for (var n = value.length - 1; n >= 0; n--) {
 				var cDigit = value.charAt(n);
@@ -1177,11 +1185,14 @@ $.extend($.validator, {
 			}, param));
 			return "pending";
 		}
+
 	}
+
 });
 
 // deprecated, use $.validator.format instead
 $.format = $.validator.format;
+
 }(jQuery));
 
 // ajax mode: abort

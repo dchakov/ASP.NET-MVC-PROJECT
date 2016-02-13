@@ -33,7 +33,7 @@
     }
 
     function splitAndTrim(value) {
-        return value.replace(/^\s+|\s+$/g, string.Empty).split(/\s*,\s*/g);
+        return value.replace(/^\s+|\s+$/g, "").split(/\s*,\s*/g);
     }
 
     function escapeAttributeValue(value) {
