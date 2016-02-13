@@ -1,11 +1,11 @@
 ﻿namespace RealEstates.Web.Controllers.Tests
 {
+    using System;
     using Microsoft.VisualStudio.TestTools.UnitTesting;
     using Model;
     using Moq;
     using RealEstates.Web.Infrastructure.Mapping;
     using Services.Contracts;
-    using System;
 
     [TestClass]
     public class HomeControllerTests

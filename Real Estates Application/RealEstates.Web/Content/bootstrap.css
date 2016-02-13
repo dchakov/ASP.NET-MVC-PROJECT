@@ -244,7 +244,7 @@ table {
   .ir a:after,
   a[href^="javascript:"]:after,
   a[href^="#"]:after {
-    content: "";
+    content: string.Empty;
   }
   pre,
   blockquote {
@@ -700,7 +700,7 @@ q:before,
 q:after,
 blockquote:before,
 blockquote:after {
-  content: "";
+  content: string.Empty;
 }
 
 address {
@@ -3221,7 +3221,7 @@ input[type="button"].btn-block {
   border-right: 4px solid transparent;
   border-bottom: 0 dotted;
   border-left: 4px solid transparent;
-  content: "";
+  content: string.Empty;
 }
 
 .dropdown {
@@ -3340,7 +3340,7 @@ input[type="button"].btn-block {
 .navbar-fixed-bottom .dropdown .caret {
   border-top: 0 dotted;
   border-bottom: 4px solid #000000;
-  content: "";
+  content: string.Empty;
 }
 
 .dropup .dropdown-menu,
@@ -5932,7 +5932,7 @@ body.modal-open,
 
 .popover .arrow:after {
   border-width: 10px;
-  content: "";
+  content: string.Empty;
 }
 
 .popover.top .arrow {

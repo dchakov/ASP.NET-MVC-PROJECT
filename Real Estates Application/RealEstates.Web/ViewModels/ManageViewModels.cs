@@ -1,10 +1,10 @@
-﻿using Microsoft.AspNet.Identity;
-using Microsoft.Owin.Security;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-
-namespace RealEstates.Web.ViewModels
+﻿namespace RealEstates.Web.ViewModels
 {
+    using Microsoft.AspNet.Identity;
+    using Microsoft.Owin.Security;
+    using System.Collections.Generic;
+    using System.ComponentModel.DataAnnotations;
+
     public class IndexViewModel
     {
         public bool HasPassword { get; set; }

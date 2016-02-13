@@ -16,15 +16,15 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                @Html.ActionLink("Real Estates", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                @Html.ActionLink("Real Estates", "Index", "Home", new { area = string.Empty }, new { @class = "navbar-brand" })
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    @Html.ActionLink("For Sale", "ForSale", "Home", new { area = "" }, new { @class = "navbar-brand" })
-                    @Html.ActionLink("For Rent", "ForRent", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                    @Html.ActionLink("For Sale", "ForSale", "Home", new { area = string.Empty }, new { @class = "navbar-brand" })
+                    @Html.ActionLink("For Rent", "ForRent", "Home", new { area = string.Empty }, new { @class = "navbar-brand" })
                     @if (User.Identity.IsAuthenticated)
                     {
-                        @Html.ActionLink("Your Real Estates", "MyProfile", "UserProfile", new { area = "" }, new { @class = "navbar-brand" })
+                        @Html.ActionLink("Your Real Estates", "MyProfile", "UserProfile", new { area = string.Empty }, new { @class = "navbar-brand" })
                     }
                     @if (User.IsInRole("Administrator"))
                     {

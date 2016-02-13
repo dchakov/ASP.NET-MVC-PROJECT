@@ -1,10 +1,10 @@
 ﻿namespace RealEstates.Model
 {
-    using Common.Constants;
     using System;
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
+    using Common.Constants;
 
     public class RealEstate
     {

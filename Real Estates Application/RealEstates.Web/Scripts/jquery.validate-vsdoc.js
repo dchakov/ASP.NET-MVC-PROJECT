@@ -163,7 +163,7 @@ $.extend($.fn, {
 		/// <param name="command" type="String">
 		/// Can be either "add" or "remove".
 		/// </param>
-		/// <param name="argument" type="">
+		/// <param name="argument" type=string.Empty>
 		/// A list of rules to add or remove.
 		/// </param>
 
@@ -217,9 +217,9 @@ $.extend($.fn, {
 // Custom selectors
 $.extend($.expr[":"], {
 	// http://docs.jquery.com/Plugins/Validation/blank
-	blank: function(a) {return !$.trim("" + a.value);},
+	blank: function(a) {return !$.trim(string.Empty + a.value);},
 	// http://docs.jquery.com/Plugins/Validation/filled
-	filled: function(a) {return !!$.trim("" + a.value);},
+	filled: function(a) {return !!$.trim(string.Empty + a.value);},
 	// http://docs.jquery.com/Plugins/Validation/unchecked
 	unchecked: function(a) {return !a.checked;}
 });
@@ -372,7 +372,7 @@ $.extend($.validator, {
 
 			function delegate(event) {
 				var validator = $.data(this[0].form, "validator"),
-					eventType = "on" + event.type.replace(/^validate/, "");
+					eventType = "on" + event.type.replace(/^validate/, string.Empty);
 				validator.settings[eventType] && validator.settings[eventType].call(validator, this[0] );
 			}
 			$(this.currentForm)
@@ -598,7 +598,7 @@ $.extend($.validator, {
 			for (var method in rules) {
 				var rule = { method: method, parameters: rules[method] };
 				try {
-					var result = $.validator.methods[method].call( this, element.value.replace(/\r/g, ""), element, rule.parameters );
+					var result = $.validator.methods[method].call( this, element.value.replace(/\r/g, string.Empty), element, rule.parameters );
 
 					// if a method indicates that the field is optional and therefore valid,
 					// don't mark it as valid when there are no other rules
@@ -741,7 +741,7 @@ $.extend($.validator, {
 				label = $("<" + this.settings.errorElement + "/>")
 					.attr({"for":  this.idOrName(element), generated: true})
 					.addClass(this.settings.errorClass)
-					.html(message || "");
+					.html(message || string.Empty);
 				if ( this.settings.wrapper ) {
 					// make sure the element is visible, even in IE
 					// actually showing the wrapped element is handled elsewhere
@@ -753,7 +753,7 @@ $.extend($.validator, {
 						: label.insertAfter(element);
 			}
 			if ( !message && this.settings.success ) {
-				label.text("");
+				label.text(string.Empty);
 				typeof this.settings.success == "string"
 					? label.addClass( this.settings.success )
 					: this.settings.success( label );
@@ -1176,7 +1176,7 @@ $.extend($.validator, {
 				nDigit = 0,
 				bEven = false;
 
-			value = value.replace(/\D/g, "");
+			value = value.replace(/\D/g, string.Empty);
 
 			for (var n = value.length - 1; n >= 0; n--) {
 				var cDigit = value.charAt(n);

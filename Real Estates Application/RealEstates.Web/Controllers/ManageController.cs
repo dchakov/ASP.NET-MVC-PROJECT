@@ -60,7 +60,7 @@ namespace RealEstates.Web.Controllers
                 : message == ManageMessageId.Error ? "An error has occurred."
                 : message == ManageMessageId.AddPhoneSuccess ? "Your phone number was added."
                 : message == ManageMessageId.RemovePhoneSuccess ? "Your phone number was removed."
-                : "";
+                : string.Empty;
 
             var userId = User.Identity.GetUserId();
             var model = new IndexViewModel
@@ -190,7 +190,7 @@ namespace RealEstates.Web.Controllers
                 return RedirectToAction("Index", new { Message = ManageMessageId.AddPhoneSuccess });
             }
             // If we got this far, something failed, redisplay form
-            ModelState.AddModelError("", "Failed to verify phone");
+            ModelState.AddModelError(string.Empty, "Failed to verify phone");
             return View(model);
         }
 
@@ -281,7 +281,7 @@ namespace RealEstates.Web.Controllers
             ViewBag.StatusMessage =
                 message == ManageMessageId.RemoveLoginSuccess ? "The external login was removed."
                 : message == ManageMessageId.Error ? "An error has occurred."
-                : "";
+                : string.Empty;
             var user = await UserManager.FindByIdAsync(User.Identity.GetUserId());
             if (user == null)
             {
@@ -316,8 +316,9 @@ namespace RealEstates.Web.Controllers
             {
                 return this.RedirectToAction("ManageLogins", new { Message = ManageMessageId.Error });
             }
+
             var result = await this.UserManager.AddLoginAsync(User.Identity.GetUserId(), loginInfo.Login);
-            return result.Succeeded ? RedirectToAction("ManageLogins") : RedirectToAction("ManageLogins", new { Message = ManageMessageId.Error });
+            return result.Succeeded ? this.RedirectToAction("ManageLogins") : RedirectToAction("ManageLogins", new { Message = ManageMessageId.Error });
         }
 
         protected override void Dispose(bool disposing)
@@ -348,13 +349,13 @@ namespace RealEstates.Web.Controllers
         {
             foreach (var error in result.Errors)
             {
-                this.ModelState.AddModelError("", error);
+                this.ModelState.AddModelError(string.Empty, error);
             }
         }
 
         private bool HasPassword()
         {
-            var user = UserManager.FindById(User.Identity.GetUserId());
+            var user = UserManager.FindById(this.User.Identity.GetUserId());
             if (user != null)
             {
                 return user.PasswordHash != null;
