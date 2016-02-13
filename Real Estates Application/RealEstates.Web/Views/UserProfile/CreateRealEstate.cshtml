@@ -6,7 +6,6 @@
 
 <h2>Create</h2>
 
-
 @using (Html.BeginForm("CreateRealEstate", "UserProfile", null, FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
     @Html.AntiForgeryToken()
@@ -137,7 +136,3 @@
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
 }
-
-
-
-

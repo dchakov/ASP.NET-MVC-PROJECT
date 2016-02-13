@@ -1,9 +1,9 @@
 ﻿namespace RealEstates.Model
 {
+    using Common.Constants;
     using System;
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
-    using Common.Constants;
     using System.ComponentModel.DataAnnotations.Schema;
 
     public class RealEstate

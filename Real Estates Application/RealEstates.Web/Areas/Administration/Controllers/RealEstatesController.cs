@@ -1,14 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
+﻿using Microsoft.AspNet.Identity;
+using RealEstates.Data;
+using RealEstates.Model;
+using System;
 using System.Data.Entity;
 using System.Linq;
 using System.Net;
-using System.Web;
 using System.Web.Mvc;
-using RealEstates.Data;
-using RealEstates.Model;
-using Microsoft.AspNet.Identity;
 
 namespace RealEstates.Web.Areas.Administration.Controllers
 {
@@ -47,7 +44,7 @@ namespace RealEstates.Web.Areas.Administration.Controllers
         }
 
         // POST: Administration/RealEstates/Create
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+        // To protect from overposting attacks, please enable the specific properties you want to bind to, for
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -85,7 +82,7 @@ namespace RealEstates.Web.Areas.Administration.Controllers
         }
 
         // POST: Administration/RealEstates/Edit/5
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+        // To protect from overposting attacks, please enable the specific properties you want to bind to, for
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]

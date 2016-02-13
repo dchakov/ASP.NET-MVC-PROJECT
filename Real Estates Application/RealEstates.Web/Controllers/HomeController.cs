@@ -1,15 +1,15 @@
 ﻿namespace RealEstates.Web.Controllers
 {
+    using Infrastructure.Mapping;
     using Model;
-    using ViewModels.Home;
-    using ViewModels.UserM;
     using Ninject;
     using Services.Contracts;
     using System.Collections.Generic;
     using System.Linq;
-    using System.Web.Mvc;
-    using Infrastructure.Mapping;
     using System.Net;
+    using System.Web.Mvc;
+    using ViewModels.Home;
+    using ViewModels.UserM;
 
     public class HomeController : BaseController
     {

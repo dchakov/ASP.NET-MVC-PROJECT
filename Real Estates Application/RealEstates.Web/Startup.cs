@@ -2,6 +2,7 @@
 using Owin;
 
 [assembly: OwinStartupAttribute(typeof(RealEstates.Web.Startup))]
+
 namespace RealEstates.Web
 {
     public partial class Startup

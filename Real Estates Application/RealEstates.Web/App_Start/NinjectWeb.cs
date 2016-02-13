@@ -6,7 +6,7 @@ namespace RealEstates.Web.App_Start
 
     using Ninject.Web;
 
-    public static class NinjectWeb 
+    public static class NinjectWeb
     {
         /// <summary>
         /// Starts the application

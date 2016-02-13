@@ -97,7 +97,7 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
-    <Compile Include="JokesRouteTests.cs" />
+    <Compile Include="RealEstatesRouteTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
