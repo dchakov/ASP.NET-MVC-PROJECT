@@ -7,8 +7,10 @@
     using RealEstates.Web.ViewModels.UserM;
     using System;
     using System.Collections.Generic;
+    using System.Data.Entity;
     using System.IO;
     using System.Linq;
+    using System.Net;
     using System.Web;
     using System.Web.Mvc;
 
@@ -105,6 +107,39 @@
             }
 
             this.ViewBag.CityId = new SelectList(this.CitiesService.GetAll(), "Id", "Name", realEstate.CityId);
+            return this.View(realEstate);
+        }
+
+        public ActionResult Edit(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+
+            RealEstate realEstate = this.RealEstatesService.GetById(id).FirstOrDefault();
+            if (realEstate == null)
+            {
+                return this.HttpNotFound();
+            }
+
+            this.ViewBag.Cities = this.CitiesService.GetAll();
+            return this.View(realEstate);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Edit([Bind(Include = "Id,Title,Description,Address,Contact,ConstructionYear,SellingPrice,RentingPrice,Type,CreatedOn,Bedrooms,SquareMeter,UserId,CityId")] RealEstate realEstate)
+        {
+            if (this.ModelState.IsValid)
+            {
+                realEstate.UserId = this.User.Identity.GetUserId();
+                this.RealEstatesService.UpdateRealEstate(realEstate);
+                this.RealEstatesService.SaveChanges();
+                return this.RedirectToAction("MyProfile");
+            }
+
+            this.ViewBag.Cities = this.CitiesService.GetAll();
             return this.View(realEstate);
         }
     }

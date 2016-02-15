@@ -380,7 +380,10 @@
     <Content Include="Views\UserProfile\CreateRealEstate.cshtml" />
     <Content Include="Views\Home\ForRent.cshtml" />
     <Content Include="Views\Home\ForSale.cshtml" />
-    <Content Include="Views\Home\ById.cshtml" />
+    <Content Include="Views\Home\RealEstateById.cshtml" />
+    <Content Include="Views\Shared\_RealEstatesTemplate.cshtml" />
+    <Content Include="Views\Home\RealEstatesByCity.cshtml" />
+    <Content Include="Views\UserProfile\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

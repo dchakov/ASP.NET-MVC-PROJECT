@@ -36,26 +36,8 @@
                 .To<UserViewModel>().ToList();
 
             IEnumerable<RealEstatesViewModel> realEstates =
-                this.RealEstatesService.GetAll(0, 10)
-                .AsQueryable()
-                .Select(r => new RealEstatesViewModel()
-                {
-                    Id = r.Id,
-                    Title = r.Title,
-                    Description = r.Description,
-                    Address = r.Address,
-                    Contact = r.Contact,
-                    ConstructionYear = r.ConstructionYear,
-                    SellingPrice = r.SellingPrice,
-                    RentingPrice = r.RentingPrice,
-                    Type = ((RealEstateType)r.Type).ToString(),
-                    CreatedOn = r.CreatedOn,
-                    Bedrooms = r.Bedrooms,
-                    SquareMeter = r.SquareMeter,
-                    UserId = r.UserId,
-                    City = r.City.Name,
-                    ImageUrl = r.Images.FirstOrDefault().ImageUrl
-                });
+                this.RealEstatesService.GetAll()
+                .To<RealEstatesViewModel>().ToList();
 
             HomePageViewModel vm = new HomePageViewModel()
             {
@@ -67,7 +49,7 @@
             return this.View(vm);
         }
 
-        public ActionResult ById(string id)
+        public ActionResult RealEstateById(string id)
         {
             if (id == null)
             {
@@ -81,6 +63,15 @@
             }
 
             return this.View(realEstate);
+        }
+
+        public ActionResult RealEstatesByCity(string name)
+        {
+            IEnumerable<RealEstatesViewModel> realEstates =
+                this.RealEstatesService.GetByCity(name)
+                .To<RealEstatesViewModel>().ToList();
+
+            return this.View(realEstates);
         }
 
         public ActionResult ForSale()

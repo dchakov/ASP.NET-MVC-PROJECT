@@ -5,11 +5,47 @@
 @if (User.Identity.GetUserId() == (string)Url.RequestContext.RouteData.Values["id"])
 {
     <p>
-        @Html.ActionLink("Create New Real Estate", "CreateRealEstate")
+        @Html.ActionLink("Create New Real Estate", "CreateRealEstate", null, new { @class = "btn btn-info" })
     </p>
 }
 
 <table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.RealEstate.City.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.RealEstate.User.ImageURL)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.RealEstate.Description)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.RealEstate.Address)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.RealEstate.ConstructionYear)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.RealEstate.SellingPrice)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.RealEstate.RentingPrice)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.RealEstate.Type)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.RealEstate.CreatedOn)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.RealEstate.Bedrooms)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.RealEstate.SquareMeter)
+        </th>
+        <th></th>
+    </tr>
 
     @foreach (var item in Model.RealEstates)
     {
@@ -18,16 +54,14 @@
                 @Html.DisplayFor(modelItem => item.City.Name)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Title)
+                <img src="@Url.Content(item.Images.FirstOrDefault().ImageUrl)" alt="Alternate Text" width="100%" />
+               
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Description)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Address)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Contact)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.ConstructionYear)

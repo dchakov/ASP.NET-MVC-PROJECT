@@ -14,7 +14,7 @@
             const string Url = "/RealEstate/OS4xMjMxMjMxMzEyMw==";
             var routeCollection = new RouteCollection();
             RouteConfig.RegisterRoutes(routeCollection);
-            routeCollection.ShouldMap(Url).To<HomeController>(c => c.ById("OS4xMjMxMjMxMzEyMw=="));
+            routeCollection.ShouldMap(Url).To<HomeController>(c => c.RealEstateById("OS4xMjMxMjMxMzEyMw=="));
         }
     }
 }

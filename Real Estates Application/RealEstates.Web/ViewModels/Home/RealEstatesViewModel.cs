@@ -4,8 +4,10 @@
     using Model;
     using Services.Web;
     using System;
+    using AutoMapper;
+    using System.Linq;
 
-    public class RealEstatesViewModel : IMapFrom<RealEstate>
+    public class RealEstatesViewModel : IMapFrom<RealEstate>, IHaveCustomMappings
     {
         public int Id { get; set; }
 
@@ -44,6 +46,16 @@
                 IIdentifierProvider identifier = new IdentifierProvider();
                 return $"/RealEstate/{identifier.EncodeId(this.Id)}";
             }
+        }
+
+        public void CreateMappings(IMapperConfiguration configuration)
+        {
+            configuration.CreateMap<RealEstate, RealEstatesViewModel>()
+               .ForMember(x => x.City, opt => opt.MapFrom(x => x.City.Name));
+            configuration.CreateMap<RealEstate, RealEstatesViewModel>()
+              .ForMember(x => x.Type, opt => opt.MapFrom(x => ((RealEstateType)x.Type).ToString()));
+            configuration.CreateMap<RealEstate, RealEstatesViewModel>()
+             .ForMember(x => x.ImageUrl, opt => opt.MapFrom(x => x.Images.FirstOrDefault().ImageUrl));
         }
     }
 }
