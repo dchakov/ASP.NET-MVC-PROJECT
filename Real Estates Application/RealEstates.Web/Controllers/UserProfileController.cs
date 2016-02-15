@@ -93,7 +93,7 @@
                         Image newImage = new Image()
                         {
                             FileName = fileName,
-                            ImageUrl = "~/App_Data/Images/" + fileName,
+                            ImageUrl = "~/Resources/Images/" + fileName,
                             RealEstateId = realEstateId
                         };
                         this.ImageService.AddNew(newImage, realEstateId);
