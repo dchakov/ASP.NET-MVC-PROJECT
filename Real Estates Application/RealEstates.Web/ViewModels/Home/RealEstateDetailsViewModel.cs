@@ -1,6 +1,59 @@
 ﻿namespace RealEstates.Web.ViewModels.Home
 {
-    public class RealEstateDetailsViewModel
+    using System;
+    using AutoMapper;
+    using RealEstates.Model;
+    using RealEstates.Web.Infrastructure.Mapping;
+    using Services.Web;
+    using System.Collections.Generic;
+
+    public class RealEstateDetailsViewModel : IMapFrom<RealEstate>, IHaveCustomMappings
     {
+        public int Id { get; set; }
+
+        public string Title { get; set; }
+
+        public string Description { get; set; }
+
+        public string Address { get; set; }
+
+        public string Contact { get; set; }
+
+        public int ConstructionYear { get; set; }
+
+        public decimal? SellingPrice { get; set; }
+
+        public decimal? RentingPrice { get; set; }
+
+        public string Type { get; set; }
+
+        public DateTime CreatedOn { get; set; }
+
+        public int? Bedrooms { get; set; }
+
+        public double SquareMeter { get; set; }
+
+        public string UserId { get; set; }
+
+        public string City { get; set; }
+
+        public virtual ICollection<Image> Images { get; set; }
+
+        public string Url
+        {
+            get
+            {
+                IIdentifierProvider identifier = new IdentifierProvider();
+                return $"/RealEstate/{identifier.EncodeId(this.Id)}";
+            }
+        }
+
+        public void CreateMappings(IMapperConfiguration configuration)
+        {
+            configuration.CreateMap<RealEstate, RealEstatesViewModel>()
+               .ForMember(x => x.City, opt => opt.MapFrom(x => x.City.Name));
+            configuration.CreateMap<RealEstate, RealEstatesViewModel>()
+              .ForMember(x => x.Type, opt => opt.MapFrom(x => ((RealEstateType)x.Type).ToString()));
+        }
     }
 }
