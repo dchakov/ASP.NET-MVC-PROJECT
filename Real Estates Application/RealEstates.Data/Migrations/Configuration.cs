@@ -31,7 +31,7 @@ namespace RealEstates.Data.Migrations
                     Email = "admin@site.com",
                     PasswordHash = new PasswordHasher().HashPassword("admin"),
                     SecurityStamp = Guid.NewGuid().ToString(),
-                    ImageURL = "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcTt7AMZyo3bBwOnN4tiunQJwcXfP9Z29X1BEsLmx1eYnNTlicRnusML0Jc".ToString()
+                    ImageURL = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTJasMskMkDoEZ9AedYnViai7RLy6hTgbv-5aCfvm3fFpp0Hsju3p_7UXj".ToString()
                 };
 
                 context.Users.Add(admin);
@@ -46,23 +46,23 @@ namespace RealEstates.Data.Migrations
                 context.SaveChanges();
             }
 
-            if (!context.Users.Where(u => u.UserName == "user1@site.com").Any())
-            {
-                for (int i = 1; i <= 5; i++)
-                {
-                    var user = new User
-                    {
-                        UserName = $"user{i}@site.com",
-                        Email = $"user{i}@site.com",
-                        PasswordHash = new PasswordHasher().HashPassword($"user{i}"),
-                        SecurityStamp = Guid.NewGuid().ToString(),
-                        ImageURL = "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcTt7AMZyo3bBwOnN4tiunQJwcXfP9Z29X1BEsLmx1eYnNTlicRnusML0Jc".ToString()
-                    };
+            // if (!context.Users.Where(u => u.UserName == "user1@site.com").Any())
+            // {
+            //    for (int i = 1; i <= 5; i++)
+            //    {
+            //        var user = new User
+            //        {
+            //            UserName = $"user{i}@site.com",
+            //            Email = $"user{i}@site.com",
+            //            PasswordHash = new PasswordHasher().HashPassword($"user{i}"),
+            //            SecurityStamp = Guid.NewGuid().ToString(),
+            //            ImageURL = "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcTt7AMZyo3bBwOnN4tiunQJwcXfP9Z29X1BEsLmx1eYnNTlicRnusML0Jc".ToString()
+            //        };
 
-                    context.Users.Add(user);
-                    context.SaveChanges();
-                }
-            }
+            //        context.Users.Add(user);
+            //        context.SaveChanges();
+            //    }
+            // }
         }
     }
 }

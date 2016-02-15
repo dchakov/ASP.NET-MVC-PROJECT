@@ -23,6 +23,8 @@
         [MaxLength(250)]
         public string ImageURL { get; set; }
 
+        public string Name { get; set; }
+
         public virtual ICollection<RealEstate> RealEstates
         {
             get { return this.realEstates; }

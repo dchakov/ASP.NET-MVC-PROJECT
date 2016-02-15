@@ -72,6 +72,7 @@
             {
                 string userID = this.User.Identity.GetUserId();
                 realEstate.UserId = userID;
+                realEstate.Contact = userID;
                 realEstate.CreatedOn = DateTime.Now;
                 int realEstateId = this.RealEstatesService.AddNew(realEstate, userID);
 
@@ -92,7 +93,7 @@
                         Image newImage = new Image()
                         {
                             FileName = fileName,
-                            ImageUrl = path,
+                            ImageUrl = "~/App_Data/Images/" + fileName,
                             RealEstateId = realEstateId
                         };
                         this.ImageService.AddNew(newImage, realEstateId);

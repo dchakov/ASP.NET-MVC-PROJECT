@@ -31,6 +31,7 @@
                 .To<CityViewModel>().ToList(), 15 * 60);
 
             IEnumerable<UserViewModel> users = this.UsersService.GetAll()
+                .Where(u => u.UserName != "admin@site.com")
                 .OrderBy(u => u.UserName)
                 .To<UserViewModel>().ToList();
 

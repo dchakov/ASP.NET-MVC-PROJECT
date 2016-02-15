@@ -1,10 +1,14 @@
 ﻿@model RealEstates.Web.ViewModels.UserM.UserPageViewModel
-
+@using Microsoft.AspNet.Identity
 <h2>User Real Estates</h2>
 
-<p>
-    @Html.ActionLink("Create New Real Estate", "CreateRealEstate")
-</p>
+@if (User.Identity.GetUserId() == (string)Url.RequestContext.RouteData.Values["id"])
+{
+    <p>
+        @Html.ActionLink("Create New Real Estate", "CreateRealEstate")
+    </p>
+}
+
 <table class="table">
 
     @foreach (var item in Model.RealEstates)
