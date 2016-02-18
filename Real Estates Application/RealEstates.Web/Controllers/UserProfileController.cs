@@ -91,7 +91,7 @@
                         }
 
                         string fileName = Path.GetFileName(file.FileName);
-                        string path = Path.Combine(this.Server.MapPath("~/App_Data/Images"), fileName);
+                        string path = Path.Combine(this.Server.MapPath("~/Resources/Images"), fileName);
                         Image newImage = new Image()
                         {
                             FileName = fileName,

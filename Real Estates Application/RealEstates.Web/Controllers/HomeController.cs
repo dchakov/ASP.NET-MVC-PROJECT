@@ -37,6 +37,8 @@
 
             IEnumerable<RealEstatesViewModel> realEstates =
                 this.RealEstatesService.GetAll()
+                .OrderBy(r => r.CreatedOn)
+                .Take(5)
                 .To<RealEstatesViewModel>().ToList();
 
             HomePageViewModel vm = new HomePageViewModel()
@@ -72,16 +74,6 @@
                 .To<RealEstatesViewModel>().ToList();
 
             return this.View(realEstates);
-        }
-
-        public ActionResult ForSale()
-        {
-            return this.View();
-        }
-
-        public ActionResult ForRent()
-        {
-            return this.View();
         }
     }
 }

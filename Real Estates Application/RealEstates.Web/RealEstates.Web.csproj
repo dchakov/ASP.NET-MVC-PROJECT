@@ -259,6 +259,8 @@
     <Compile Include="Areas\Administration\Helpers\AdminMenu.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
+    <Compile Include="Controllers\ForRentController.cs" />
+    <Compile Include="Controllers\ForSaleController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\UserProfileController.cs" />
@@ -273,6 +275,8 @@
     <Compile Include="ViewModels\Account\ExternalLoginListViewModel.cs" />
     <Compile Include="ViewModels\Account\ForgotPasswordViewModel.cs" />
     <Compile Include="ViewModels\Account\ForgotViewModel.cs" />
+    <Compile Include="ViewModels\ForRent\ForRentViewModel.cs" />
+    <Compile Include="ViewModels\ForSale\ForSellViewModel.cs" />
     <Compile Include="ViewModels\Home\CityViewModel.cs" />
     <Compile Include="ViewModels\Home\HomePageViewModel.cs" />
     <Compile Include="ViewModels\Home\RealEstateDetailsViewModel.cs" />
@@ -378,8 +382,8 @@
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\UserProfile\Index.cshtml" />
     <Content Include="Views\UserProfile\CreateRealEstate.cshtml" />
-    <Content Include="Views\Home\ForRent.cshtml" />
-    <Content Include="Views\Home\ForSale.cshtml" />
+    <Content Include="Views\ForRent\Index.cshtml" />
+    <Content Include="Views\ForSale\Index.cshtml" />
     <Content Include="Views\Home\RealEstateById.cshtml" />
     <Content Include="Views\Shared\_RealEstatesTemplate.cshtml" />
     <Content Include="Views\Home\RealEstatesByCity.cshtml" />
