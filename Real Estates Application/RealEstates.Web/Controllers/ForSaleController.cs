@@ -46,5 +46,21 @@
 
             return this.View(realEstate);
         }
+
+        public ActionResult Search(int beds, string property_type, string minPrice, string maxPrice)
+        {
+            IEnumerable<RealEstatesViewModel> realEstates =
+               this.RealEstatesService.GetAll()
+               .Where(r => r.Bedrooms >= beds)
+               .OrderBy(r => r.CreatedOn)
+               .To<RealEstatesViewModel>().ToList();
+
+            ForSellViewModel vm = new ForSellViewModel()
+            {
+                RealEstates = realEstates
+            };
+
+            return this.PartialView("_RealEstatesForSaleTemplate", vm);
+        }
     }
 }
