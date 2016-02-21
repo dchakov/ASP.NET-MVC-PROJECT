@@ -14,7 +14,7 @@
     using System.Web;
     using System.Web.Mvc;
 
-    public class UserProfileController : Controller
+    public class UserProfileController : BaseController
     {
         [Inject]
         public IUsersService UsersService { get; set; }

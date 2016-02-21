@@ -78,5 +78,19 @@
                 .OrderBy(r => r.CreatedOn)
                 .Take(5);
         }
+
+        public IQueryable<RealEstate> GetForSale()
+        {
+            return this.realEstates.All()
+                .Where(r => r.SellingPrice > 0)
+                .OrderBy(r => r.CreatedOn);
+        }
+
+        public IQueryable<RealEstate> GetForRent()
+        {
+            return this.realEstates.All()
+                .Where(r => r.RentingPrice > 0)
+                .OrderBy(r => r.CreatedOn);
+        }
     }
 }

@@ -22,5 +22,9 @@
         void Delete(int id);
 
         IQueryable<RealEstate> GetMostRecent();
+
+        IQueryable<RealEstate> GetForSale();
+
+        IQueryable<RealEstate> GetForRent();
     }
 }

@@ -1,0 +1,63 @@
+﻿
+@using (Ajax.BeginForm("Search", null, new AjaxOptions
+{
+    UpdateTargetId = "results",
+    InsertionMode = InsertionMode.Replace,
+    HttpMethod = "POST"
+}, new { id = "searchForm" }))
+{
+    <div class="form-group">
+        <div class="col-md-12">
+            <label class="search-bb">
+                Beds<br>
+                <select id="searchBeds" name="beds">
+                    <option selected="selected" value="0">Any</option>
+                    <option value="1">1+</option>
+                    <option value="2">2+</option>
+                    <option value="3">3+</option>
+                    <option value="4">4+</option>
+                    <option value="5">5+</option>
+                </select>
+            </label>
+            <label class="search-propertyType">
+                Property Type<br>
+                <select id="type" name="property_type">
+                    <option value="">All Available</option>
+                    <option value="Apartment">Apartments</option>
+                    <option value="House">House</option>
+                    <option value="Office">Office</option>
+                    <option value="Storehouse">Storehouse</option>
+                </select>
+            </label>
+            <div class="row">
+                <label for="minPrice">
+                    Price Range<br />
+                    <input type="number" id="minPrice" name="minPrice" min="0">
+                </label>
+                <span class="label_s">to</span>
+                <input type="number" id="maxPrice" name="maxPrice" min="0">
+            </div>
+        </div>
+        <div class="col-md-12">
+            <div class="row">
+                <label for="minYear">
+                    Year Built<br />
+                    <input type="number" id="minYear" name="minYear" min="1800" max="2100">
+                </label>
+                <span class="label_s">to</span>
+                <input type="number" id="maxYear" name="maxYear" min="1800" max="2100">
+            </div>
+            <div class="row">
+                <label for="minSQFT">
+                    Square Feet<br />
+                    <input type="number" id="minSQFT" name="minSQFT" min="0">
+                </label>
+                <span class="label_s">to</span>
+                <input type="number" id="maxSQFT" name="maxSQFT" min="0">
+            </div>
+        </div>
+        <div class="row">
+            <input type="submit" value="Search" class="btn btn-info" />
+        </div>
+    </div>
+}

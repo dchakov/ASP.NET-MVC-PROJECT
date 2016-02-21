@@ -5,6 +5,10 @@
 
     public class ForRentViewModel
     {
+        public int CurrentPage { get; set; }
+
+        public int TotalPages { get; set; }
+
         public IEnumerable<RealEstatesViewModel> RealEstates { get; set; }
     }
 }

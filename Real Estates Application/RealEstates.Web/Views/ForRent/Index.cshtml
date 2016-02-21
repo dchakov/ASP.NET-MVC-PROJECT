@@ -1,5 +1,13 @@
-﻿@{
-    ViewBag.Title = "ForRent";
+﻿@model RealEstates.Web.ViewModels.ForRent.ForRentViewModel
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
+
 <h2>ForRent</h2>
+
+@Html.Partial("_SearchForm")
+
+<div class="container" id="results">
+    @Html.Partial("_RealEstatesForRentTemplate", Model)
+</div>

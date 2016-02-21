@@ -46,7 +46,7 @@
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Contact)
+            @Html.DisplayFor(model => model.User.Name)
         </dd>
 
         <dt>
@@ -98,11 +98,27 @@
         </dd>
 
         <dt>
+            @Html.DisplayNameFor(model => model.Bathrooms)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Bathrooms)
+        </dd>
+
+        <dt>
             @Html.DisplayNameFor(model => model.SquareMeter)
         </dt>
 
         <dd>
             @Html.DisplayFor(model => model.SquareMeter)
+        </dd>
+
+        <dt>
+            Price Per SqFt
+        </dt>
+
+        <dd>
+            @((double)Model.SellingPrice/Model.SquareMeter)
         </dd>
     </dl>
 </div>
