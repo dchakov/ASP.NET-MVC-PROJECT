@@ -25,11 +25,10 @@
                  .OrderByDescending(c => c.CreatedOn);
         }
 
-        public IQueryable<RealEstate> GetById(int? id)
+        public RealEstate GetById(int? id)
         {
             return this.realEstates
-                .All()
-                .Where(c => c.Id == id);
+                .All().FirstOrDefault(c => c.Id == id);
         }
 
         public int AddNew(RealEstate newRealEstate, string userId)
@@ -91,6 +90,11 @@
             return this.realEstates.All()
                 .Where(r => r.RentingPrice > 0)
                 .OrderBy(r => r.CreatedOn);
+        }
+
+        public void Dispose()
+        {
+            this.realEstates.Dispose();
         }
     }
 }

@@ -1,0 +1,33 @@
+﻿@using Kendo.Mvc.UI
+@(Html.Kendo().Grid<RealEstates.Web.Areas.Administration.ViewModels.RealEstateViewModel>()
+      .Name("grid")
+      .Columns(columns =>
+      {
+        columns.Bound(c => c.Title);
+        columns.Bound(c => c.Description);
+        columns.Bound(c => c.Address);
+        columns.Bound(c => c.AgentName);
+        columns.Bound(c => c.ConstructionYear);
+        columns.Bound(c => c.SellingPrice);
+        columns.Bound(c => c.RentingPrice);
+        columns.Bound(c => c.Type);
+        columns.Bound(c => c.CreatedOn).Format("{0:yyyy-MM-dd HH:mm}");
+        columns.Bound(c => c.Bedrooms);
+        columns.Bound(c => c.Bathrooms);
+        columns.Bound(c => c.SquareMeter);
+        columns.Command(command => { command.Edit(); command.Destroy(); }).Width(180);
+      })
+      .Editable(editable => editable.Mode(GridEditMode.PopUp))
+      .Pageable()
+      .Sortable(sortable => {
+          sortable.SortMode(GridSortMode.SingleColumn);
+      })
+      .Filterable()
+      .DataSource(dataSource => dataSource
+          .Ajax()
+          .Model(model => model.Id(p => p.Id))
+          .Read(read => read.Action("RealEstates_Read", "RealEstates"))
+          .Update(update => update.Action("RealEstates_Update", "RealEstates"))
+          .Destroy(destroy => destroy.Action("RealEstates_Destroy", "RealEstates"))
+      )
+)

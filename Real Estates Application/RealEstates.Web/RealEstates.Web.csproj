@@ -255,7 +255,9 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Areas\Administration\AdministrationAreaRegistration.cs" />
     <Compile Include="Areas\Administration\Controllers\AdminController.cs" />
+    <Compile Include="Areas\Administration\Controllers\RealEstatesController.cs" />
     <Compile Include="Areas\Administration\Helpers\AdminMenu.cs" />
+    <Compile Include="Areas\Administration\ViewModels\RealEstateViewModel.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\ForRentController.cs" />
@@ -368,11 +370,6 @@
     <Content Include="Areas\Administration\Views\_ViewStart.cshtml" />
     <Content Include="Areas\Administration\Views\Shared\_AdminMenu.cshtml" />
     <Content Include="RealEstates.Web.ruleset" />
-    <Content Include="Areas\Administration\Views\Users\Create.cshtml" />
-    <Content Include="Areas\Administration\Views\Users\Delete.cshtml" />
-    <Content Include="Areas\Administration\Views\Users\Details.cshtml" />
-    <Content Include="Areas\Administration\Views\Users\Edit.cshtml" />
-    <Content Include="Areas\Administration\Views\Users\Index.cshtml" />
     <Content Include="Content\KendoUI\fonts\DejaVu\DejaVuSans-Bold.ttf" />
     <Content Include="Content\KendoUI\fonts\DejaVu\DejaVuSans-BoldOblique.ttf" />
     <Content Include="Content\KendoUI\fonts\DejaVu\DejaVuSans-ExtraLight.ttf" />
@@ -393,6 +390,7 @@
     <Content Include="Content\KendoUI\images\kendoui.woff" />
     <Content Include="Content\KendoUI\kendo.common.min.css.map" />
     <Content Include="Content\KendoUI\kendo.default.min.css.map" />
+    <Content Include="Areas\Administration\Views\RealEstates\Index.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -451,10 +449,13 @@
     <Content Include="Views\Shared\_RealEstatesForSaleTemplate.cshtml" />
     <Content Include="Views\Shared\_RealEstatesForRentTemplate.cshtml" />
     <Content Include="Views\Shared\_SearchForm.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\DateTime.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Resources\Images\" />
+    <Folder Include="Views\RealEstates\" />
+    <Folder Include="Views\Shared\EditorTemplates\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

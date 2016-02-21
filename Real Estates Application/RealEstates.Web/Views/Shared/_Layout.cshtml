@@ -8,6 +8,16 @@
     @Scripts.Render("~/bundles/modernizr")
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/kendo")
+    <script>
+        kendo.culture("en-GB");
+        var culture = kendo.culture();
+        culture.calendar.patterns.d = "dd MMM yyyy"; // 25 Feb 2015
+        culture.calendar.patterns.D = "dd MMM yyyy";
+        culture.calendar.patterns.t = "HH:mm";   // 16:45
+        culture.calendar.patterns.T = "HH:mm";
+        culture.calendar.patterns.g = "dd MMM yyyy HH:mm";
+        culture.calendar.patterns.G = "dd MMM yyyy HH:mm";
+    </script>
 </head>
 <body>
     <div class="navbar navbar-inverse navbar-fixed-top">

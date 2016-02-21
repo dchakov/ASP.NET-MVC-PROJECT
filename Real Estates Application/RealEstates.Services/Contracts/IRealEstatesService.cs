@@ -7,7 +7,7 @@
     {
         IQueryable<RealEstate> GetAll();
 
-        IQueryable<RealEstate> GetById(int? id);
+        RealEstate GetById(int? id);
 
         int AddNew(RealEstate newRealEstate, string userId);
 
@@ -26,5 +26,7 @@
         IQueryable<RealEstate> GetForSale();
 
         IQueryable<RealEstate> GetForRent();
+
+        void Dispose();
     }
 }

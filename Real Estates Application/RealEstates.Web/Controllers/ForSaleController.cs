@@ -29,10 +29,10 @@
             else
             {
                 var page = id;
-                var allItemsCount = this.RealEstatesService.GetForRent().Count();
+                var allItemsCount = this.RealEstatesService.GetForSale().Count();
                 var totalPages = (int)Math.Ceiling(allItemsCount / (decimal)ItemsPerPage);
                 var itemsToSkip = (page - 1) * ItemsPerPage;
-                var realEstates = this.RealEstatesService.GetForRent()
+                var realEstates = this.RealEstatesService.GetForSale()
                     .Skip(itemsToSkip)
                     .Take(ItemsPerPage)
                     .To<RealEstatesViewModel>().ToList();

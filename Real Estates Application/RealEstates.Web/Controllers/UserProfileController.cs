@@ -117,7 +117,7 @@
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
 
-            RealEstate realEstate = this.RealEstatesService.GetById(id).FirstOrDefault();
+            RealEstate realEstate = this.RealEstatesService.GetById(id);
             if (realEstate == null)
             {
                 return this.HttpNotFound();
