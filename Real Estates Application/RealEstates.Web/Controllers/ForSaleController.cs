@@ -20,7 +20,6 @@
         {
             IEnumerable<RealEstatesViewModel> realEstates =
                 this.RealEstatesService.GetAll()
-                .OrderBy(r => r.CreatedOn)
                 .To<RealEstatesViewModel>().ToList();
 
             ForSellViewModel vm = new ForSellViewModel()
@@ -52,17 +51,24 @@
             string property_type,
             string minPrice,
             string maxPrice,
-            string minLotSize,
-            string maxLotSize,
             string minYear,
             string maxYear,
             string minSQFT,
             string maxSQFT)
         {
+            int minP = minPrice == string.Empty ? 0 : int.Parse(minPrice);
+            int maxP = maxPrice == string.Empty ? int.MaxValue : int.Parse(maxPrice);
+            int minY = minYear == string.Empty ? 1800 : int.Parse(minYear);
+            int maxY = maxYear == string.Empty ? 2100 : int.Parse(maxYear);
+            int minSQ = minSQFT == string.Empty ? 0 : int.Parse(minSQFT);
+            int maxSQ = maxSQFT == string.Empty ? int.MaxValue : int.Parse(maxSQFT);
+
             IEnumerable<RealEstatesViewModel> realEstates =
                this.RealEstatesService.GetAll()
-               .Where(r => r.Bedrooms >= beds)
-               .OrderBy(r => r.CreatedOn)
+               .Where(r => r.Bedrooms >= beds &&
+               (r.SellingPrice >= minP && r.SellingPrice <= maxP) &&
+               (r.ConstructionYear >= minY && r.ConstructionYear <= maxY) &&
+               (r.SquareMeter >= minSQ && r.SquareMeter <= maxSQ))
                .To<RealEstatesViewModel>().ToList();
 
             ForSellViewModel vm = new ForSellViewModel()
