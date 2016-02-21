@@ -20,5 +20,7 @@
         void UpdateRealEstate(RealEstate realEsate);
 
         void Delete(int id);
+
+        IQueryable<RealEstate> GetMostRecent();
     }
 }

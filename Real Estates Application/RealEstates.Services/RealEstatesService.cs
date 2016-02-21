@@ -71,5 +71,12 @@
         {
             this.realEstates.Delete(id);
         }
+
+        public IQueryable<RealEstate> GetMostRecent()
+        {
+            return this.realEstates.All()
+                .OrderBy(r => r.CreatedOn)
+                .Take(5);
+        }
     }
 }

@@ -47,7 +47,17 @@
             return this.View(realEstate);
         }
 
-        public ActionResult Search(int beds, string property_type, string minPrice, string maxPrice)
+        public ActionResult Search(
+            int beds,
+            string property_type,
+            string minPrice,
+            string maxPrice,
+            string minLotSize,
+            string maxLotSize,
+            string minYear,
+            string maxYear,
+            string minSQFT,
+            string maxSQFT)
         {
             IEnumerable<RealEstatesViewModel> realEstates =
                this.RealEstatesService.GetAll()

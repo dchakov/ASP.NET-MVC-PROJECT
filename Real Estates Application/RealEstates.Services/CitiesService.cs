@@ -4,6 +4,7 @@
     using Model;
     using RealEstates.Services.Contracts;
     using System.Linq;
+    using System;
 
     public class CitiesService : ICitiesService
     {
@@ -17,6 +18,13 @@
         public IQueryable<City> GetAll()
         {
             return this.cities.All();
+        }
+
+        public IQueryable<City> GetMostPopular()
+        {
+            return this.cities.All()
+                .OrderByDescending(c => c.RealEstates.Count())
+                .Take(20);
         }
     }
 }

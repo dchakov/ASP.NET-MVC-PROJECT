@@ -11,6 +11,8 @@
 
         void Rate(Rating rating);
 
-        User GetByUserId(string Id);
+        User GetByUserId(string id);
+
+        IQueryable<User> GetMostPopularAgents();
     }
 }

@@ -6,5 +6,7 @@
     public interface ICitiesService
     {
         IQueryable<City> GetAll();
+
+        IQueryable<City> GetMostPopular();
     }
 }

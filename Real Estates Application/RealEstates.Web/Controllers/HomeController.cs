@@ -26,19 +26,14 @@
         {
             IEnumerable<CityViewModel> cities = this.Cache.Get(
                 "cities",
-                () => this.CitiesService.GetAll()
-                .OrderBy(x => x.Name)
+                () => this.CitiesService.GetMostPopular()
                 .To<CityViewModel>().ToList(), 15 * 60);
 
-            IEnumerable<UserViewModel> users = this.UsersService.GetAll()
-                .Where(u => u.UserName != "admin@site.com")
-                .OrderBy(u => u.UserName)
+            IEnumerable<UserViewModel> users = this.UsersService.GetMostPopularAgents()
                 .To<UserViewModel>().ToList();
 
             IEnumerable<RealEstatesViewModel> realEstates =
-                this.RealEstatesService.GetAll()
-                .OrderBy(r => r.CreatedOn)
-                .Take(5)
+                this.RealEstatesService.GetMostRecent()
                 .To<RealEstatesViewModel>().ToList();
 
             HomePageViewModel vm = new HomePageViewModel()

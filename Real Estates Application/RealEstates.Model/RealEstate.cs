@@ -49,6 +49,8 @@
 
         public int? Bedrooms { get; set; }
 
+        public int? Bathrooms { get; set; }
+
         public double SquareMeter { get; set; }
 
         public string UserId { get; set; }

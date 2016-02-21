@@ -36,9 +36,16 @@
             this.ratings.SaveChanges();
         }
 
-        public User GetByUserId(string Id)
+        public User GetByUserId(string id)
         {
-            return this.users.All().Where(u => u.Id == Id).FirstOrDefault();
+            return this.users.All().Where(u => u.Id == id).FirstOrDefault();
+        }
+
+        public IQueryable<User> GetMostPopularAgents()
+        {
+            return this.users.All()
+                .Where(u => u.UserName != "admin@site.com")
+                .OrderByDescending(u => u.RealEstates.Count());
         }
     }
 }
