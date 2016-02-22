@@ -132,7 +132,7 @@
         @using (Html.BeginForm("AddComment", "RealEstate", FormMethod.Post))
         {
             <div class="redColor">
-                @Html.ValidationSummary()
+                @Html.ValidationSummary(true, string.Empty, new { @class = "text-danger" })
             </div>
             @Html.AntiForgeryToken()
 
