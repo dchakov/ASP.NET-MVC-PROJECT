@@ -1,23 +1,14 @@
 ﻿@using Kendo.Mvc.UI
-@(Html.Kendo().Grid<RealEstates.Model.User>()
+@(Html.Kendo().Grid<RealEstates.Web.Areas.Administration.ViewModels.UserViewModel>()
       .Name("grid")
       .Columns(columns =>
       {
-        columns.Bound(c => c.ImageURL);
-        columns.Bound(c => c.Name);
-        columns.Bound(c => c.UserImageId);
-        columns.Bound(c => c.Email);
-        columns.Bound(c => c.EmailConfirmed);
-        columns.Bound(c => c.PasswordHash);
-        columns.Bound(c => c.SecurityStamp);
-        columns.Bound(c => c.PhoneNumber);
-        columns.Bound(c => c.PhoneNumberConfirmed);
-        columns.Bound(c => c.TwoFactorEnabled);
-        columns.Bound(c => c.LockoutEndDateUtc);
-        columns.Bound(c => c.LockoutEnabled);
-        columns.Bound(c => c.AccessFailedCount);
-        columns.Bound(c => c.UserName);
-        columns.Command(command => { command.Edit(); command.Destroy(); }).Width(180);
+          columns.Bound(c => c.ImageURL).ClientTemplate("<img src='" + "#=ImageURL#'" + "alt='Alternate Text' width='100 % '>");
+          columns.Bound(c => c.Name);
+          columns.Bound(c => c.UserImageId);
+          columns.Bound(c => c.Email);
+          columns.Bound(c => c.UserName);
+          columns.Command(command => { command.Edit(); command.Destroy(); }).Width(180);
       })
       .ColumnMenu()
       .Editable(editable => editable.Mode(GridEditMode.PopUp))

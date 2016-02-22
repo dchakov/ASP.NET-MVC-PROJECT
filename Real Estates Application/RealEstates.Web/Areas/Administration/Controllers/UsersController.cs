@@ -1,117 +1,70 @@
-﻿﻿using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Data.Entity;
-using System.Linq;
-using System.Net;
-using System.Web;
-using System.Web.Mvc;
-using Kendo.Mvc.Extensions;
-using Kendo.Mvc.UI;
-using RealEstates.Model;
-
-namespace RealEstates.Web.Areas.Administration.Controllers
+﻿namespace RealEstates.Web.Areas.Administration.Controllers
 {
+    using System.Linq;
+    using System.Web.Mvc;
+    using Kendo.Mvc.Extensions;
+    using Kendo.Mvc.UI;
+    using RealEstates.Model;
+    using Ninject;
+    using Services.Contracts;
+    using ViewModels;
+    using Infrastructure.Mapping;
+
     public class UsersController : Controller
     {
-        private RealEstatesDbContext db = new RealEstatesDbContext();
+        [Inject]
+        public IUsersService UsersService { get; set; }
 
         public ActionResult Index()
         {
-            return View();
+            return this.View();
         }
 
         public ActionResult Users_Read([DataSourceRequest]DataSourceRequest request)
         {
-            IQueryable<User> users = db.Users;
-            DataSourceResult result = users.ToDataSourceResult(request, user => new {
-                Id = user.Id,
-                ImageURL = user.ImageURL,
-                Name = user.Name,
-                UserImageId = user.UserImageId,
-                Email = user.Email,
-                EmailConfirmed = user.EmailConfirmed,
-                PasswordHash = user.PasswordHash,
-                SecurityStamp = user.SecurityStamp,
-                PhoneNumber = user.PhoneNumber,
-                PhoneNumberConfirmed = user.PhoneNumberConfirmed,
-                TwoFactorEnabled = user.TwoFactorEnabled,
-                LockoutEndDateUtc = user.LockoutEndDateUtc,
-                LockoutEnabled = user.LockoutEnabled,
-                AccessFailedCount = user.AccessFailedCount,
-                UserName = user.UserName
-            });
+            DataSourceResult result = this.UsersService.GetAll()
+                .To<UserViewModel>()
+                .ToDataSourceResult(request);
 
-            return Json(result);
+            return this.Json(result);
         }
 
         [AcceptVerbs(HttpVerbs.Post)]
-        public ActionResult Users_Update([DataSourceRequest]DataSourceRequest request, User user)
+        public ActionResult Users_Update([DataSourceRequest]DataSourceRequest request, UserViewModel user)
         {
-            if (ModelState.IsValid)
+            if (this.ModelState.IsValid)
             {
-                var entity = new User
-                {
-                    Id = user.Id,
-                    ImageURL = user.ImageURL,
-                    Name = user.Name,
-                    UserImageId = user.UserImageId,
-                    Email = user.Email,
-                    EmailConfirmed = user.EmailConfirmed,
-                    PasswordHash = user.PasswordHash,
-                    SecurityStamp = user.SecurityStamp,
-                    PhoneNumber = user.PhoneNumber,
-                    PhoneNumberConfirmed = user.PhoneNumberConfirmed,
-                    TwoFactorEnabled = user.TwoFactorEnabled,
-                    LockoutEndDateUtc = user.LockoutEndDateUtc,
-                    LockoutEnabled = user.LockoutEnabled,
-                    AccessFailedCount = user.AccessFailedCount,
-                    UserName = user.UserName
-                };
+                var entity = this.UsersService.GetByUserId(user.Id);
 
-                db.Users.Attach(entity);
-                db.Entry(entity).State = EntityState.Modified;
-                db.SaveChanges();
+                entity.ImageURL = user.ImageURL;
+                entity.Name = user.Name;
+                entity.UserImageId = user.UserImageId;
+                entity.Email = user.Email;
+                entity.UserName = user.UserName;
+
+                this.UsersService.Update(entity);
+                this.UsersService.SaveChanges();
             }
 
-            return Json(new[] { user }.ToDataSourceResult(request, ModelState));
+            var userToDispley = this.UsersService.GetAll()
+               .To<UserViewModel>()
+               .FirstOrDefault(x => x.Id == user.Id);
+
+            return this.Json(new[] { userToDispley }.ToDataSourceResult(request, this.ModelState));
         }
 
         [AcceptVerbs(HttpVerbs.Post)]
         public ActionResult Users_Destroy([DataSourceRequest]DataSourceRequest request, User user)
         {
-            if (ModelState.IsValid)
-            {
-                var entity = new User
-                {
-                    Id = user.Id,
-                    ImageURL = user.ImageURL,
-                    Name = user.Name,
-                    UserImageId = user.UserImageId,
-                    Email = user.Email,
-                    EmailConfirmed = user.EmailConfirmed,
-                    PasswordHash = user.PasswordHash,
-                    SecurityStamp = user.SecurityStamp,
-                    PhoneNumber = user.PhoneNumber,
-                    PhoneNumberConfirmed = user.PhoneNumberConfirmed,
-                    TwoFactorEnabled = user.TwoFactorEnabled,
-                    LockoutEndDateUtc = user.LockoutEndDateUtc,
-                    LockoutEnabled = user.LockoutEnabled,
-                    AccessFailedCount = user.AccessFailedCount,
-                    UserName = user.UserName
-                };
+            this.UsersService.Delete(user.Id);
+            this.UsersService.SaveChanges();
 
-                db.Users.Attach(entity);
-                db.Users.Remove(entity);
-                db.SaveChanges();
-            }
-
-            return Json(new[] { user }.ToDataSourceResult(request, ModelState));
+            return this.Json(new[] { user }.ToDataSourceResult(request, this.ModelState));
         }
 
         protected override void Dispose(bool disposing)
         {
-            db.Dispose();
+            this.UsersService.Dispose();
             base.Dispose(disposing);
         }
     }

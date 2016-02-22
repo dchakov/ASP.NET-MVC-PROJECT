@@ -57,5 +57,16 @@
         {
             this.users.Update(user);
         }
+
+        public void Delete(string id)
+        {
+            var user = this.users.GetById(id);
+            this.users.Delete(user);
+        }
+
+        public void Dispose()
+        {
+            this.users.Dispose();
+        }
     }
 }

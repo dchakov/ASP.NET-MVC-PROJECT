@@ -18,5 +18,9 @@
         void SaveChanges();
 
         void Update(User user);
+
+        void Delete(string id);
+
+        void Dispose();
     }
 }
