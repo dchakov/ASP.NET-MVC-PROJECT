@@ -93,10 +93,12 @@
     <Compile Include="Contracts\ICommentsService.cs" />
     <Compile Include="Contracts\IImageService.cs" />
     <Compile Include="Contracts\IRealEstatesService.cs" />
+    <Compile Include="Contracts\IUsersImageService.cs" />
     <Compile Include="Contracts\IUsersService.cs" />
     <Compile Include="ImageService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RealEstatesService.cs" />
+    <Compile Include="UsersImageService.cs" />
     <Compile Include="UsersService.cs" />
   </ItemGroup>
   <ItemGroup>

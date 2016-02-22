@@ -25,6 +25,10 @@
 
         public string Name { get; set; }
 
+        public int? UserImageId { get; set; }
+
+        public virtual UserImage UserImage { get; set; }
+
         public virtual ICollection<RealEstate> RealEstates
         {
             get { return this.realEstates; }

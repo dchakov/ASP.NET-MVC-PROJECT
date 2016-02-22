@@ -47,5 +47,15 @@
                 .Where(u => u.UserName != "admin@site.com")
                 .OrderByDescending(u => u.RealEstates.Count());
         }
+
+        public void SaveChanges()
+        {
+            this.users.SaveChanges();
+        }
+
+        public void Update(User user)
+        {
+            this.users.Update(user);
+        }
     }
 }

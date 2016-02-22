@@ -37,6 +37,7 @@
                     @if (User.Identity.IsAuthenticated)
                     {
                         @Html.ActionLink("Your Real Estates", "MyProfile", "UserProfile", new { area = string.Empty }, new { @class = "navbar-brand" })
+                        @Html.ActionLink("User Profile", "Index", "UserProfilePersonal", new { Area = string.Empty }, new { @class = "navbar-brand" })
                     }
                     @if (User.IsInRole("Administrator"))
                     {
@@ -48,6 +49,7 @@
         </div>
     </div>
     <div class="container body-content">
+        @Html.Partial("_SuccessfullMessage")
         @RenderBody()
         <hr />
         <footer>

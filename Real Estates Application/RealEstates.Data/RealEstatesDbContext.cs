@@ -22,6 +22,8 @@
 
         public IDbSet<RealEstate> RealEstates { get; set; }
 
+        public IDbSet<UserImage> UserImages { get; set; }
+
         public static RealEstatesDbContext Create()
         {
             return new RealEstatesDbContext();

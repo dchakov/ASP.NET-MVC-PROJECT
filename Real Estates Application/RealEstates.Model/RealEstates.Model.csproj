@@ -95,6 +95,7 @@
     <Compile Include="RealEstate.cs" />
     <Compile Include="RealEstateType.cs" />
     <Compile Include="User.cs" />
+    <Compile Include="UserImage.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

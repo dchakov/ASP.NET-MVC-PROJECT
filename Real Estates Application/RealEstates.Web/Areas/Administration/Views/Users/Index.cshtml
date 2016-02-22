@@ -1,0 +1,37 @@
+﻿@using Kendo.Mvc.UI
+@(Html.Kendo().Grid<RealEstates.Model.User>()
+      .Name("grid")
+      .Columns(columns =>
+      {
+        columns.Bound(c => c.ImageURL);
+        columns.Bound(c => c.Name);
+        columns.Bound(c => c.UserImageId);
+        columns.Bound(c => c.Email);
+        columns.Bound(c => c.EmailConfirmed);
+        columns.Bound(c => c.PasswordHash);
+        columns.Bound(c => c.SecurityStamp);
+        columns.Bound(c => c.PhoneNumber);
+        columns.Bound(c => c.PhoneNumberConfirmed);
+        columns.Bound(c => c.TwoFactorEnabled);
+        columns.Bound(c => c.LockoutEndDateUtc);
+        columns.Bound(c => c.LockoutEnabled);
+        columns.Bound(c => c.AccessFailedCount);
+        columns.Bound(c => c.UserName);
+        columns.Command(command => { command.Edit(); command.Destroy(); }).Width(180);
+      })
+      .ColumnMenu()
+      .Editable(editable => editable.Mode(GridEditMode.PopUp))
+      .Pageable()
+      .Sortable(sortable => {
+          sortable.SortMode(GridSortMode.SingleColumn);
+      })
+      .Filterable()
+      .Scrollable()
+      .DataSource(dataSource => dataSource
+          .Ajax()
+          .Model(model => model.Id(p => p.Id))
+          .Read(read => read.Action("Users_Read", "Users"))
+          .Update(update => update.Action("Users_Update", "Users"))
+          .Destroy(destroy => destroy.Action("Users_Destroy", "Users"))
+      )
+)

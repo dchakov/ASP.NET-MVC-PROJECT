@@ -1,0 +1,55 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<p class="text-success">@ViewBag.StatusMessage</p>
+<div class="row">
+    <div class="col-md-12">
+        <div class="row">
+            <img src="@Url.Action("Image", "UserProfilePersonal")" class="img-responsive"
+                 id="user_img"
+                 height="300"
+                 width="200"
+                 style="border:solid" />
+        </div>
+
+        <br />
+        @using (Html.BeginForm("UpdateImage", "UserProfilePersonal", FormMethod.Post, new { @class = "form-horizontal", role = "form", enctype = "multipart/form-data" }))
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="row">
+                <div class="col-md-5">
+                    <input type="file" name="uploadedImage" id="file" onchange="show(this)" />
+                </div>
+            </div>
+
+            <br />
+
+            <div class="row">
+                <div class="col-md-5">
+                    <input type="submit" value="Update Image" class="btn btn-primary" />
+                </div>
+            </div>
+        }
+        <br /><br />
+    </div>
+</div>
+
+<script>
+    function show(input) {
+        if (input.files && input.files[0]) {
+            var filerdr = new FileReader();
+            filerdr.onload = function (e) {
+                $('#user_img').attr('src', e.target.result);
+            }
+            filerdr.readAsDataURL(input.files[0]);
+        }
+    }
+</script>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
+

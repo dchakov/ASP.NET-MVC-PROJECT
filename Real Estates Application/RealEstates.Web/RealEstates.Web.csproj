@@ -258,6 +258,7 @@
     <Compile Include="Areas\Administration\Controllers\CitiesController.cs" />
     <Compile Include="Areas\Administration\Controllers\CommentsController.cs" />
     <Compile Include="Areas\Administration\Controllers\RealEstatesController.cs" />
+    <Compile Include="Areas\Administration\Controllers\UsersController.cs" />
     <Compile Include="Areas\Administration\Helpers\AdminMenu.cs" />
     <Compile Include="Areas\Administration\ViewModels\RealEstateViewModel.cs" />
     <Compile Include="Controllers\AccountController.cs" />
@@ -268,6 +269,7 @@
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\UserProfileController.cs" />
     <Compile Include="App_Start\GlimpseSecurityPolicy.cs" />
+    <Compile Include="Controllers\UserProfilePersonalController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -361,6 +363,7 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Resources\Files\default.png" />
     <Content Include="Scripts\ai.0.15.0-build58334.js" />
     <Content Include="Scripts\ai.0.15.0-build58334.min.js" />
     <Content Include="Scripts\bootstrap.js" />
@@ -395,6 +398,7 @@
     <Content Include="Areas\Administration\Views\RealEstates\Index.cshtml" />
     <Content Include="Areas\Administration\Views\Cities\Index.cshtml" />
     <Content Include="Areas\Administration\Views\Comments\Index.cshtml" />
+    <Content Include="Areas\Administration\Views\Users\Index.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -454,6 +458,8 @@
     <Content Include="Views\Shared\_RealEstatesForRentTemplate.cshtml" />
     <Content Include="Views\Shared\_SearchForm.cshtml" />
     <Content Include="Views\Shared\DisplayTemplates\DateTime.cshtml" />
+    <Content Include="Views\Shared\_SuccessfullMessage.cshtml" />
+    <Content Include="Views\UserProfilePersonal\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -462,6 +468,7 @@
     <Folder Include="Views\Comments\" />
     <Folder Include="Views\RealEstates\" />
     <Folder Include="Views\Shared\EditorTemplates\" />
+    <Folder Include="Views\Users\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

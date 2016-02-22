@@ -14,5 +14,9 @@
         User GetByUserId(string id);
 
         IQueryable<User> GetMostPopularAgents();
+
+        void SaveChanges();
+
+        void Update(User user);
     }
 }
