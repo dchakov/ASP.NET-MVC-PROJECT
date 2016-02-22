@@ -25,11 +25,11 @@
                 .Take(take);
         }
 
-        public IQueryable<Comment> GetById(int id)
+        public Comment GetById(int id)
         {
             return this.comments
                 .All()
-                .Where(c => c.Id == id);
+                .FirstOrDefault(c => c.Id == id);
         }
 
         public IQueryable<Comment> GetAllByUser(string username, int skip, int take)
@@ -50,6 +50,27 @@
             this.comments.SaveChanges();
 
             return comment.Id;
+        }
+
+        public IQueryable<Comment> GetAll()
+        {
+            return this.comments.All();
+        }
+
+        public void SaveChanges()
+        {
+            this.comments.SaveChanges();
+        }
+
+        public void Delete(int id)
+        {
+            var comment = this.comments.GetById(id);
+            this.comments.Delete(comment);
+        }
+
+        public void Dispose()
+        {
+            this.comments.Dispose();
         }
     }
 }

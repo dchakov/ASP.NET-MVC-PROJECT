@@ -7,7 +7,6 @@
     using RealEstates.Web.ViewModels.UserM;
     using System;
     using System.Collections.Generic;
-    using System.Data.Entity;
     using System.IO;
     using System.Linq;
     using System.Net;

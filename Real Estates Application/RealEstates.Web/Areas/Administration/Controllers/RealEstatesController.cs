@@ -1,23 +1,17 @@
 ﻿namespace RealEstates.Web.Areas.Administration.Controllers
 {
-    using System;
-    using System.Collections.Generic;
-    using System.Data;
-    using System.Data.Entity;
     using System.Linq;
-    using System.Net;
-    using System.Web;
     using System.Web.Mvc;
     using Kendo.Mvc.Extensions;
     using Kendo.Mvc.UI;
     using RealEstates.Model;
-    using RealEstates.Data;
     using Ninject;
     using Services.Contracts;
     using Infrastructure.Mapping;
     using ViewModels;
+    using Web.Controllers;
 
-    public class RealEstatesController : Controller
+    public class RealEstatesController : BaseController
     {
         [Inject]
         public IRealEstatesService RealEstatesService { get; set; }

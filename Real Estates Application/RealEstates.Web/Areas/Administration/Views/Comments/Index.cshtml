@@ -1,0 +1,27 @@
+﻿@using Kendo.Mvc.UI
+@(Html.Kendo().Grid<RealEstates.Model.Comment>()
+      .Name("grid")
+      .Columns(columns =>
+      {
+          columns.Bound(c => c.Content);
+          columns.Bound(c => c.User.Name);
+          columns.Bound(c => c.CreatedOn);
+          columns.Command(command => { command.Edit(); command.Destroy(); }).Width(180);
+      })
+      .ColumnMenu()
+      .Editable(editable => editable.Mode(GridEditMode.InLine))
+      .Pageable()
+      .Navigatable()
+      .Sortable(sortable => {
+          sortable.SortMode(GridSortMode.SingleColumn);
+      })
+      .Filterable()
+      .Scrollable()
+      .DataSource(dataSource => dataSource
+          .Ajax()
+          .Model(model => model.Id(p => p.Id))
+          .Read(read => read.Action("Comments_Read", "Comments"))
+          .Update(update => update.Action("Comments_Update", "Comments"))
+          .Destroy(destroy => destroy.Action("Comments_Destroy", "Comments"))
+      )
+)

@@ -1,0 +1,29 @@
+﻿@using Kendo.Mvc.UI
+@(Html.Kendo().Grid<RealEstates.Model.City>()
+      .Name("grid")
+      .Columns(columns =>
+      {
+        columns.Bound(c => c.Name);
+        columns.Command(command => { command.Edit(); command.Destroy(); }).Width(180);
+      })
+      .ToolBar(toolbar => {
+            toolbar.Create();
+      })
+      .ColumnMenu()
+      .Editable(editable => editable.Mode(GridEditMode.InLine))
+      .Pageable()
+      .Navigatable()
+      .Sortable(sortable => {
+          sortable.SortMode(GridSortMode.SingleColumn);
+      })
+      .Filterable()
+      .Scrollable()
+      .DataSource(dataSource => dataSource
+          .Ajax()
+          .Model(model => model.Id(p => p.Id))
+          .Read(read => read.Action("Cities_Read", "Cities"))
+          .Create(create => create.Action("Cities_Create", "Cities"))
+          .Update(update => update.Action("Cities_Update", "Cities"))
+          .Destroy(destroy => destroy.Action("Cities_Destroy", "Cities"))
+      )
+)

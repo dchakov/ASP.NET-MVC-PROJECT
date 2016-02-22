@@ -255,6 +255,8 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Areas\Administration\AdministrationAreaRegistration.cs" />
     <Compile Include="Areas\Administration\Controllers\AdminController.cs" />
+    <Compile Include="Areas\Administration\Controllers\CitiesController.cs" />
+    <Compile Include="Areas\Administration\Controllers\CommentsController.cs" />
     <Compile Include="Areas\Administration\Controllers\RealEstatesController.cs" />
     <Compile Include="Areas\Administration\Helpers\AdminMenu.cs" />
     <Compile Include="Areas\Administration\ViewModels\RealEstateViewModel.cs" />
@@ -391,6 +393,8 @@
     <Content Include="Content\KendoUI\kendo.common.min.css.map" />
     <Content Include="Content\KendoUI\kendo.default.min.css.map" />
     <Content Include="Areas\Administration\Views\RealEstates\Index.cshtml" />
+    <Content Include="Areas\Administration\Views\Cities\Index.cshtml" />
+    <Content Include="Areas\Administration\Views\Comments\Index.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -454,6 +458,8 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Resources\Images\" />
+    <Folder Include="Views\Cities\" />
+    <Folder Include="Views\Comments\" />
     <Folder Include="Views\RealEstates\" />
     <Folder Include="Views\Shared\EditorTemplates\" />
   </ItemGroup>
