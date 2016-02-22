@@ -260,7 +260,7 @@
     <Compile Include="Areas\Administration\Controllers\RealEstatesController.cs" />
     <Compile Include="Areas\Administration\Controllers\UsersController.cs" />
     <Compile Include="Areas\Administration\Helpers\AdminMenu.cs" />
-    <Compile Include="Areas\Administration\ViewModels\RealEstateViewModel.cs" />
+    <Compile Include="Areas\Administration\ViewModels\RealEstateAdminViewModel.cs" />
     <Compile Include="Areas\Administration\ViewModels\UserViewModel.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
@@ -268,6 +268,7 @@
     <Compile Include="Controllers\ForSaleController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\RealEstateController.cs" />
     <Compile Include="Controllers\UserProfileController.cs" />
     <Compile Include="App_Start\GlimpseSecurityPolicy.cs" />
     <Compile Include="Controllers\UserProfilePersonalController.cs" />
@@ -286,7 +287,7 @@
     <Compile Include="ViewModels\Home\CityViewModel.cs" />
     <Compile Include="ViewModels\Home\HomePageViewModel.cs" />
     <Compile Include="ViewModels\Home\RealEstateDetailsViewModel.cs" />
-    <Compile Include="ViewModels\Home\RealEstatesViewModel.cs" />
+    <Compile Include="ViewModels\Home\RealEstateViewModel.cs" />
     <Compile Include="ViewModels\Account\LoginViewModel.cs" />
     <Compile Include="ViewModels\Manage\AddPhoneNumberViewModel.cs" />
     <Compile Include="ViewModels\Manage\ChangePasswordViewModel.cs" />
@@ -299,6 +300,7 @@
     <Compile Include="ViewModels\Account\SendCodeViewModel.cs" />
     <Compile Include="ViewModels\Manage\SetPasswordViewModel.cs" />
     <Compile Include="ViewModels\Manage\VerifyPhoneNumberViewModel.cs" />
+    <Compile Include="ViewModels\Shared\CommentViewModel.cs" />
     <Compile Include="ViewModels\UserM\UserPageViewModel.cs" />
     <Compile Include="ViewModels\UserM\UserViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -451,7 +453,7 @@
     <Content Include="Views\UserProfile\CreateRealEstate.cshtml" />
     <Content Include="Views\ForRent\Index.cshtml" />
     <Content Include="Views\ForSale\Index.cshtml" />
-    <Content Include="Views\Home\RealEstateById.cshtml" />
+    <Content Include="Views\RealEstate\RealEstateById.cshtml" />
     <Content Include="Views\Shared\_RealEstatesTemplate.cshtml" />
     <Content Include="Views\Home\RealEstatesByCity.cshtml" />
     <Content Include="Views\UserProfile\Edit.cshtml" />
@@ -467,7 +469,6 @@
     <Folder Include="Resources\Images\" />
     <Folder Include="Views\Cities\" />
     <Folder Include="Views\Comments\" />
-    <Folder Include="Views\RealEstates\" />
     <Folder Include="Views\Shared\EditorTemplates\" />
     <Folder Include="Views\Users\" />
   </ItemGroup>

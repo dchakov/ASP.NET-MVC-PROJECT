@@ -35,7 +35,7 @@
                 var realEstates = this.RealEstatesService.GetForSale()
                     .Skip(itemsToSkip)
                     .Take(ItemsPerPage)
-                    .To<RealEstatesViewModel>().ToList();
+                    .To<RealEstateViewModel>().ToList();
 
                 viewModel = new ForSellViewModel()
                 {
@@ -88,13 +88,13 @@
             int minSQ = minSQFT == string.Empty || minSQFT == null ? 0 : int.Parse(minSQFT);
             int maxSQ = maxSQFT == string.Empty || maxSQFT == null ? int.MaxValue : int.Parse(maxSQFT);
 
-            IEnumerable<RealEstatesViewModel> realEstates =
+            IEnumerable<RealEstateViewModel> realEstates =
                this.RealEstatesService.GetAll()
                .Where(r => r.Bedrooms >= beds &&
                (r.SellingPrice >= minP && r.SellingPrice <= maxP) &&
                (r.ConstructionYear >= minY && r.ConstructionYear <= maxY) &&
                (r.SquareMeter >= minSQ && r.SquareMeter <= maxSQ))
-               .To<RealEstatesViewModel>().ToList();
+               .To<RealEstateViewModel>().ToList();
 
             ForSellViewModel vm = new ForSellViewModel()
             {

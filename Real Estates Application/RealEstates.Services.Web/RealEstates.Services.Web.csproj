@@ -43,11 +43,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="EmailHider.cs" />
     <Compile Include="HttpCacheService.cs" />
     <Compile Include="ICacheService.cs" />
     <Compile Include="IdentifierProvider.cs" />
+    <Compile Include="IEmailHider.cs" />
     <Compile Include="IIdentifierProvider.cs" />
+    <Compile Include="IReCaptchaServices.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ReCaptchaServices.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

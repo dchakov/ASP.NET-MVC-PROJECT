@@ -9,6 +9,6 @@
 
         public int TotalPages { get; set; }
 
-        public IEnumerable<RealEstatesViewModel> RealEstates { get; set; }
+        public IEnumerable<RealEstateViewModel> RealEstates { get; set; }
     }
 }

@@ -6,8 +6,9 @@
     using System;
     using AutoMapper;
     using System.Linq;
+    using System.Collections.Generic;
 
-    public class RealEstatesViewModel : IMapFrom<RealEstate>, IHaveCustomMappings
+    public class RealEstateViewModel : IMapFrom<RealEstate>, IHaveCustomMappings
     {
         public int Id { get; set; }
 
@@ -31,13 +32,19 @@
 
         public int? Bedrooms { get; set; }
 
+        public int? Bathrooms { get; set; }
+
         public double SquareMeter { get; set; }
 
         public string UserId { get; set; }
 
+        public string BrokerName { get; set; }
+
         public string City { get; set; }
 
         public string ImageUrl { get; set; }
+
+        public ICollection<Image> Images { get; set; }
 
         public string Url
         {
@@ -48,14 +55,28 @@
             }
         }
 
+        public string FormattedCreatedOn
+        {
+            get
+            {
+                return this.CreatedOn.ToString("MMMM d, yyyy");
+            }
+        }
+
+        public int CommentsCount { get; set; }
+
         public void CreateMappings(IMapperConfiguration configuration)
         {
-            configuration.CreateMap<RealEstate, RealEstatesViewModel>()
+            configuration.CreateMap<RealEstate, RealEstateViewModel>()
                .ForMember(x => x.City, opt => opt.MapFrom(x => x.City.Name));
-            configuration.CreateMap<RealEstate, RealEstatesViewModel>()
+            configuration.CreateMap<RealEstate, RealEstateViewModel>()
               .ForMember(x => x.Type, opt => opt.MapFrom(x => ((RealEstateType)x.Type).ToString()));
-            configuration.CreateMap<RealEstate, RealEstatesViewModel>()
+            configuration.CreateMap<RealEstate, RealEstateViewModel>()
              .ForMember(x => x.ImageUrl, opt => opt.MapFrom(x => x.Images.FirstOrDefault().ImageUrl));
+            configuration.CreateMap<RealEstate, RealEstateViewModel>("CommentsCount")
+               .ForMember(x => x.CommentsCount, opt => opt.MapFrom(x => x.Comments.Any() ? x.Comments.Count : 0));
+            configuration.CreateMap<RealEstate, RealEstateViewModel>()
+              .ForMember(x => x.BrokerName, opt => opt.MapFrom(x => x.User.Name));
         }
     }
 }

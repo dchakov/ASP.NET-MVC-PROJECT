@@ -36,7 +36,7 @@
                 var realEstates = this.RealEstatesService.GetForRent()
                     .Skip(itemsToSkip)
                     .Take(ItemsPerPage)
-                    .To<RealEstatesViewModel>().ToList();
+                    .To<RealEstateViewModel>().ToList();
 
                 viewModel = new ForRentViewModel()
                 {
@@ -89,13 +89,13 @@
             int minSQ = minSQFT == string.Empty || minSQFT == null ? 0 : int.Parse(minSQFT);
             int maxSQ = maxSQFT == string.Empty || maxSQFT == null ? int.MaxValue : int.Parse(maxSQFT);
 
-            IEnumerable<RealEstatesViewModel> realEstates =
+            IEnumerable<RealEstateViewModel> realEstates =
                this.RealEstatesService.GetAll()
                .Where(r => r.Bedrooms >= beds &&
                (r.RentingPrice >= minP && r.RentingPrice <= maxP) &&
                (r.ConstructionYear >= minY && r.ConstructionYear <= maxY) &&
                (r.SquareMeter >= minSQ && r.SquareMeter <= maxSQ))
-               .To<RealEstatesViewModel>().ToList();
+               .To<RealEstateViewModel>().ToList();
 
             ForRentViewModel vm = new ForRentViewModel()
             {

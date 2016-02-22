@@ -5,14 +5,16 @@
     using Model;
     using System;
     using System.Linq;
-
+    using Web;
     public class CommentsService : ICommentsService
     {
         private readonly IRepository<Comment> comments;
+        private readonly IIdentifierProvider identifierProvider;
 
-        public CommentsService(IRepository<Comment> comments)
+        public CommentsService(IRepository<Comment> comments, IIdentifierProvider identifierProvider)
         {
             this.comments = comments;
+            this.identifierProvider = identifierProvider;
         }
 
         public IQueryable<Comment> GetAllByRealEstate(int realEstateId, int skip, int take)
@@ -71,6 +73,16 @@
         public void Dispose()
         {
             this.comments.Dispose();
+        }
+
+        public IQueryable<Comment> GetCommentsForRealEstate(string id)
+        {
+            var intId = this.identifierProvider.DecodeId(id);
+            var comments = this.comments
+                .All()
+                .OrderByDescending(c => c.CreatedOn)
+                .Where(c => c.RealEstateId == intId);
+            return comments;
         }
     }
 }

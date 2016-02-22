@@ -12,7 +12,7 @@
             routes.MapRoute(
                 name: "RealEstatePage",
                 url: "RealEstate/{id}",
-                defaults: new { controller = "Home", action = "RealEstateById" });
+                defaults: new { controller = "RealEstate", action = "RealEstateById" });
 
             routes.MapRoute(
                 name: "Default",

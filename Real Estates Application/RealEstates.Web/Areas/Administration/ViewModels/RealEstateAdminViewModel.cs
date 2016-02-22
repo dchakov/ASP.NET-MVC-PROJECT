@@ -7,7 +7,7 @@
     using Infrastructure.Mapping;
     using Model;
 
-    public class RealEstateViewModel : IMapFrom<RealEstate>, IHaveCustomMappings
+    public class RealEstateAdminViewModel : IMapFrom<RealEstate>, IHaveCustomMappings
     {
         [Key]
         public int Id { get; set; }
@@ -49,7 +49,7 @@
 
         public void CreateMappings(IMapperConfiguration configuration)
         {
-            configuration.CreateMap<RealEstate, RealEstateViewModel>()
+            configuration.CreateMap<RealEstate, RealEstateAdminViewModel>()
                 .ForMember(x => x.AgentName, opt => opt.MapFrom(x => x.User.Name));
         }
     }

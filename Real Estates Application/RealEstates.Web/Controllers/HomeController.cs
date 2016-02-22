@@ -1,12 +1,10 @@
 ﻿namespace RealEstates.Web.Controllers
 {
     using Infrastructure.Mapping;
-    using Model;
     using Ninject;
     using Services.Contracts;
     using System.Collections.Generic;
     using System.Linq;
-    using System.Net;
     using System.Web.Mvc;
     using ViewModels.Home;
     using ViewModels.UserM;
@@ -32,9 +30,9 @@
             IEnumerable<UserViewModel> users = this.UsersService.GetMostPopularAgents()
                 .To<UserViewModel>().ToList();
 
-            IEnumerable<RealEstatesViewModel> realEstates =
+            IEnumerable<RealEstateViewModel> realEstates =
                 this.RealEstatesService.GetMostRecent()
-                .To<RealEstatesViewModel>().ToList();
+                .To<RealEstateViewModel>().ToList();
 
             HomePageViewModel vm = new HomePageViewModel()
             {
@@ -46,27 +44,11 @@
             return this.View(vm);
         }
 
-        public ActionResult RealEstateById(string id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-
-            RealEstate realEstate = this.RealEstatesService.GetByEncodedId(id);
-            if (realEstate == null)
-            {
-                return this.HttpNotFound();
-            }
-
-            return this.View(realEstate);
-        }
-
         public ActionResult RealEstatesByCity(string name)
         {
-            IEnumerable<RealEstatesViewModel> realEstates =
+            IEnumerable<RealEstateViewModel> realEstates =
                 this.RealEstatesService.GetByCity(name)
-                .To<RealEstatesViewModel>().ToList();
+                .To<RealEstateViewModel>().ToList();
 
             return this.View(realEstates);
         }

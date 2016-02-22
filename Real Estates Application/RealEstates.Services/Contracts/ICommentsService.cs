@@ -20,5 +20,7 @@
         void Delete(int id);
 
         void Dispose();
+
+        IQueryable<Comment> GetCommentsForRealEstate(string id);
     }
 }

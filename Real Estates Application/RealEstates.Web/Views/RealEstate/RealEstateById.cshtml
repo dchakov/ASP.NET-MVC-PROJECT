@@ -1,0 +1,127 @@
+﻿@model RealEstates.Web.ViewModels.Home.RealEstateDetailsViewModel
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <hr />
+    <div class="row">
+        @foreach (var item in Model.RealEstate.Images)
+        {
+            <div class="col-md-4">
+                <img src="@Url.Content(item.ImageUrl)" alt="Alternate Text" width="100%" />
+            </div>
+        }
+    </div>
+    <dl class="dl-horizontal">
+        <dt>
+            <strong>City</strong>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RealEstate.City)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RealEstate.Description)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RealEstate.Description)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RealEstate.Address)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RealEstate.Address)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RealEstate.Contact)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RealEstate.BrokerName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RealEstate.ConstructionYear)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RealEstate.ConstructionYear)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RealEstate.SellingPrice)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RealEstate.SellingPrice)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RealEstate.RentingPrice)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RealEstate.RentingPrice)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RealEstate.Type)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RealEstate.Type)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RealEstate.CreatedOn)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RealEstate.CreatedOn)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RealEstate.Bedrooms)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RealEstate.Bedrooms)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RealEstate.Bathrooms)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RealEstate.Bathrooms)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RealEstate.SquareMeter)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RealEstate.SquareMeter)
+        </dd>
+
+        <dt>
+            Price Per SqFt
+        </dt>
+
+        <dd>
+            @((double)Model.RealEstate.SellingPrice / Model.RealEstate.SquareMeter)
+        </dd>
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Back to List", "Index", "Home");
+</p>

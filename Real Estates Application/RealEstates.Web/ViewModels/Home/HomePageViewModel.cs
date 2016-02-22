@@ -9,6 +9,6 @@
 
         public IEnumerable<CityViewModel> Cities { get; set; }
 
-        public IEnumerable<RealEstatesViewModel> RealEstates { get; set; }
+        public IEnumerable<RealEstateViewModel> RealEstates { get; set; }
     }
 }

@@ -24,14 +24,14 @@
         public ActionResult RealEstates_Read([DataSourceRequest]DataSourceRequest request)
         {
             DataSourceResult result = this.RealEstatesService.GetAll()
-                .To<RealEstateViewModel>()
+                .To<RealEstateAdminViewModel>()
                 .ToDataSourceResult(request);
 
             return this.Json(result);
         }
 
         [AcceptVerbs(HttpVerbs.Post)]
-        public ActionResult RealEstates_Update([DataSourceRequest]DataSourceRequest request, RealEstateViewModel realEstate)
+        public ActionResult RealEstates_Update([DataSourceRequest]DataSourceRequest request, RealEstateAdminViewModel realEstate)
         {
             if (this.ModelState.IsValid)
             {
@@ -55,7 +55,7 @@
             }
 
             var realEsateToDisplay = this.RealEstatesService.GetAll()
-                .To<RealEstateViewModel>()
+                .To<RealEstateAdminViewModel>()
                 .FirstOrDefault(x => x.Id == realEstate.Id);
 
             return this.Json(new[] { realEsateToDisplay }.ToDataSourceResult(request, this.ModelState));
