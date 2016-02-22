@@ -15,6 +15,11 @@
                 defaults: new { controller = "RealEstate", action = "RealEstateById" });
 
             routes.MapRoute(
+                name: "RealEstateAction",
+                url: "RealEstate/{action}",
+                defaults: new { controller = "RealEstate", action = "AddComment" });
+
+            routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
                 defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional });

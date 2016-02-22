@@ -125,3 +125,62 @@
 <p>
     @Html.ActionLink("Back to List", "Index", "Home");
 </p>
+
+<div class="row">
+    <div class="col-md-10">
+        <h2>@Model.RealEstate.CommentsCount comments</h2>
+        @using (Html.BeginForm("AddComment", "RealEstate", FormMethod.Post))
+        {
+            <div class="redColor">
+                @Html.ValidationSummary()
+            </div>
+            @Html.AntiForgeryToken()
+
+            @Html.TextBoxFor(m => m.RealEstateId, new { hidden = "hidden" })
+            @Html.EditorFor(m => m.Content)
+            @Html.EditorFor(m => m.AuthorEmail)
+            <input type="submit" value="Post comment" class="btn btn-default" />
+        }
+
+        @if (@Model.RealEstate.CommentsCount > 0)
+        {
+            <ul>
+                @foreach (var comment in Model.Comments)
+                {
+                    <li>
+                        <div class="row">
+                            <div class="col-md-4">@comment.HiddentAuthorEmail <span class="grey">commented</span></div>
+                            <div class="col-md-8 grey">@comment.FormattedCreatedOn</div>
+                        </div>
+
+                        <div class="row">
+                            @comment.Content
+                        </div>
+                    </li>
+                }
+            </ul>
+
+            <ul class="pagination">
+                @if (Model.CurrentCommentPage > 1)
+                {
+                    <li><a href="/RealEstate/@Model.RealEstate.Url?page=1">&laquo;</a></li>
+                }
+
+                @for (int i = 1; i <= Model.TotalCommentPages; i++)
+                {
+                    <li @if (Model.CurrentCommentPage == i) { <text> class="active" </text>       }>
+                        <a href="/suggestions/@Model.RealEstate.Url?page=@i.ToString()">@i.ToString()</a>
+                    </li>
+                }
+            </ul>
+        }
+        else
+        {
+            <p>No comments for this suggestion yet</p>
+        }
+    </div>
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

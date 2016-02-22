@@ -1,9 +1,11 @@
 ﻿namespace RealEstates.Web.Controllers
 {
     using Infrastructure.Mapping;
+    using Microsoft.AspNet.Identity;
     using Model;
     using Ninject;
     using Services.Contracts;
+    using Services.Web;
     using System;
     using System.Linq;
     using System.Net;
@@ -15,12 +17,18 @@
     {
         private const int CommentPageSize = 4;
 
+        private IIdentifierProvider identifier = new IdentifierProvider();
+
         [Inject]
         public IRealEstatesService RealEstatesService { get; set; }
 
         [Inject]
+        public IUsersService UserService { get; set; }
+
+        [Inject]
         public ICommentsService CommentsService { get; set; }
 
+        [HttpGet]
         public ActionResult RealEstateById(string id)
         {
             if (id == null)
@@ -67,6 +75,27 @@
             };
 
             return this.View(viewModel);
+        }
+
+        public ActionResult AddComment(RealEstateDetailsViewModel model)
+        {
+            if (!this.ModelState.IsValid)
+            {
+                return this.View(model);
+            }
+
+            var userId = this.User.Identity.GetUserId();
+            if (userId == null)
+            {
+                return this.RedirectToAction("Login", "Account");
+            }
+
+            var user = this.UserService.GetByUserId(userId);
+
+            string currentIp = this.Request.ServerVariables["REMOTE_ADDR"];
+            this.CommentsService.Create(model.Content, user.Email, userId, model.RealEstateId);
+
+            return this.RedirectToAction("RealEstateById", new { id = this.identifier.EncodeId(model.RealEstateId) });
         }
     }
 }

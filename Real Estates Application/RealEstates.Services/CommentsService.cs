@@ -84,5 +84,22 @@
                 .Where(c => c.RealEstateId == intId);
             return comments;
         }
+
+        public Comment Create(string content, string authorEmail, string userId, int realEstateId)
+        {
+            var comment = new Comment()
+            {
+                Content = content,
+                RealEstateId = realEstateId,
+                CreatedOn = DateTime.Now,
+                AuthorEmail = authorEmail,
+                UserId = userId
+            };
+
+            this.comments.Add(comment);
+            this.comments.SaveChanges();
+
+            return comment;
+        }
     }
 }

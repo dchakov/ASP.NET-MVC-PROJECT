@@ -463,6 +463,7 @@
     <Content Include="Views\Shared\DisplayTemplates\DateTime.cshtml" />
     <Content Include="Views\Shared\_SuccessfullMessage.cshtml" />
     <Content Include="Views\UserProfilePersonal\Index.cshtml" />
+    <Content Include="Views\Shared\_RealEstateComments.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

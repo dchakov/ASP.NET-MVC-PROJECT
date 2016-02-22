@@ -22,5 +22,7 @@
         void Dispose();
 
         IQueryable<Comment> GetCommentsForRealEstate(string id);
+
+        Comment Create(string content, string authorEmail, string userId, int realEstateId);
     }
 }

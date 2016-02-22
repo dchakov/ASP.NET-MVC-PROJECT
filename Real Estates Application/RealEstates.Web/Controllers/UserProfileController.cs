@@ -49,7 +49,7 @@
             UserPageViewModel vm = new UserPageViewModel()
             {
                 ImageURL = appUser.ImageURL,
-                Comments = appUser.Comments.OrderByDescending(c => c.RealEstate).ToList(),
+                Comments = appUser.Comments.OrderByDescending(c => c.CreatedOn).ToList(),
                 RealEstates = appUser.RealEstates.OrderByDescending(r => r.CreatedOn).ToList(),
                 Ratings = appUser.Ratings.ToList()
             };
