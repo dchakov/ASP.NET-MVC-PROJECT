@@ -3,6 +3,8 @@
 
 namespace RealEstates.Web.App_Start
 {
+    using System;
+    using System.Web;
     using Data;
     using Data.Repositories;
     using Microsoft.Web.Infrastructure.DynamicModuleHelper;
@@ -10,8 +12,6 @@ namespace RealEstates.Web.App_Start
     using Ninject.Extensions.Conventions;
     using Ninject.Web.Common;
     using Services.Web;
-    using System;
-    using System.Web;
 
     public static class NinjectWebCommon
     {

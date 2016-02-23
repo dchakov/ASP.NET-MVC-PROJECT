@@ -59,8 +59,8 @@ namespace RealEstates.Data.Migrations
             //            ImageURL = "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcTt7AMZyo3bBwOnN4tiunQJwcXfP9Z29X1BEsLmx1eYnNTlicRnusML0Jc".ToString()
             //        };
 
-            //        context.Users.Add(user);
-            //        context.SaveChanges();
+            // context.Users.Add(user);
+            // context.SaveChanges();
             //    }
             // }
         }

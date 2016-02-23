@@ -1,8 +1,8 @@
 ﻿namespace RealEstates.Data
 {
-    using RealEstates.Model;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
+    using RealEstates.Model;
 
     public interface IRealEstatesDbContext
     {
