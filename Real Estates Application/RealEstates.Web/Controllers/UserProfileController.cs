@@ -102,6 +102,7 @@
                     }
                 }
 
+                this.TempData["Notification"] = "Thank you for your Real Estate!";
                 return this.RedirectToAction("MyProfile");
             }
 

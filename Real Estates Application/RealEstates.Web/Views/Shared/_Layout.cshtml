@@ -49,6 +49,12 @@
         </div>
     </div>
     <div class="container body-content">
+        @if (this.TempData["Notification"] != null)
+        {
+            <div class="alert alert-success" role="alert">
+                @this.TempData["Notification"]
+            </div>
+        }
         @Html.Partial("_SuccessfullMessage")
         @RenderBody()
         <hr />
