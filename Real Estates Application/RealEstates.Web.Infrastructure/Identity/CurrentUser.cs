@@ -1,10 +1,10 @@
 ﻿namespace RealEstates.Web.Infrastructure.Identity
 {
+    using System.Security.Principal;
+
     using Microsoft.AspNet.Identity;
     using RealEstates.Data;
     using RealEstates.Model;
-
-    using System.Security.Principal;
 
     public class CurrentUser : ICurrentUser
     {

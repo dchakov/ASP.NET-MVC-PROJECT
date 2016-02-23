@@ -22,7 +22,8 @@
         public ActionResult Cities_Read([DataSourceRequest]DataSourceRequest request)
         {
             IQueryable<City> cities = this.CitiesService.GetAll();
-            DataSourceResult result = cities.ToDataSourceResult(request, city => new {
+            DataSourceResult result = cities.ToDataSourceResult(request, city => new
+            {
                 Id = city.Id,
                 Name = city.Name
             });

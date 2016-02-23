@@ -1,11 +1,11 @@
 ﻿namespace RealEstates.Web
 {
+    using System.Security.Claims;
+    using System.Threading.Tasks;
     using Microsoft.AspNet.Identity.Owin;
     using Microsoft.Owin;
     using Microsoft.Owin.Security;
     using RealEstates.Model;
-    using System.Security.Claims;
-    using System.Threading.Tasks;
 
     // Configure the application sign-in manager which is used in this application.
     public class ApplicationSignInManager : SignInManager<User, string>

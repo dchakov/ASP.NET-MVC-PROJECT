@@ -22,7 +22,8 @@
         public ActionResult Comments_Read([DataSourceRequest]DataSourceRequest request)
         {
             IQueryable<Comment> comments = this.CommentsService.GetAll();
-            DataSourceResult result = comments.ToDataSourceResult(request, comment => new {
+            DataSourceResult result = comments.ToDataSourceResult(request, comment => new
+            {
                 Id = comment.Id,
                 Content = comment.Content,
                 CreatedOn = comment.CreatedOn,

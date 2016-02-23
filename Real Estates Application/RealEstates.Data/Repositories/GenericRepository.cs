@@ -4,7 +4,8 @@
     using System.Data.Entity;
     using System.Linq;
 
-    public class GenericRepository<T> : IRepository<T> where T : class
+    public class GenericRepository<T> : IRepository<T>
+        where T : class
     {
         public GenericRepository(IRealEstatesDbContext context)
         {
