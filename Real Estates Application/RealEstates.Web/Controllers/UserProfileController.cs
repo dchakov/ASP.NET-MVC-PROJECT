@@ -14,6 +14,7 @@
     using RealEstates.Services.Contracts;
     using RealEstates.Web.ViewModels.UserM;
 
+    [HandleError]
     public class UserProfileController : BaseController
     {
         [Inject]

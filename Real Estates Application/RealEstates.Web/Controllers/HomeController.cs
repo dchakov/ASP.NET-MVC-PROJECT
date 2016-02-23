@@ -54,5 +54,10 @@
 
             return this.View(realEstates);
         }
+
+        public ActionResult Error()
+        {
+            return this.View();
+        }
     }
 }

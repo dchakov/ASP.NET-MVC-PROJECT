@@ -129,16 +129,21 @@
 <div class="row">
     <div class="col-md-10">
         <h2>@Model.RealEstate.CommentsCount comments</h2>
+
         @using (Html.BeginForm("AddComment", "RealEstate", FormMethod.Post))
         {
             <div class="redColor">
                 @Html.ValidationSummary(true, string.Empty, new { @class = "text-danger" })
             </div>
+
             @Html.AntiForgeryToken()
 
             @Html.TextBoxFor(m => m.RealEstateId, new { hidden = "hidden" })
+            @Html.ValidationMessageFor(m => m.Content, null, new { @class = "text-danger" })
             @Html.EditorFor(m => m.Content, new { htmlAttributes = new { placeholder = "Add a comment...", @class = "form-control col-md-12" } })
+            @Html.ValidationMessageFor(m => m.AuthorEmail, null, new { @class = "text-danger" })
             @Html.EditorFor(m => m.AuthorEmail, new { htmlAttributes = new { placeholder = "Add email", @class = "form-control col-md-12" } })
+
             <input type="submit" value="Post comment" class="btn btn-info" />
         }
 
@@ -168,7 +173,7 @@
 
                 @for (int i = 1; i <= Model.TotalCommentPages; i++)
                 {
-                    <li @if (Model.CurrentCommentPage == i) { <text> class="active" </text>       }>
+                    <li @if (Model.CurrentCommentPage == i) { <text> class="active" </text>        }>
                         <a href="/suggestions/@Model.RealEstate.Url?page=@i.ToString()">@i.ToString()</a>
                     </li>
                 }

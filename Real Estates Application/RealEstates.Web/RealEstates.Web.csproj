@@ -474,6 +474,7 @@
     <Content Include="Views\Shared\_SuccessfullMessage.cshtml" />
     <Content Include="Views\UserProfilePersonal\Index.cshtml" />
     <Content Include="Views\Shared\_RealEstateComments.cshtml" />
+    <Content Include="Views\Home\Error.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

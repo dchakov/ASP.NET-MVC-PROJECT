@@ -14,6 +14,7 @@
     using ViewModels.Home;
     using ViewModels.Shared;
 
+    [HandleError]
     public class RealEstateController : BaseController
     {
         private const int CommentPageSize = 4;

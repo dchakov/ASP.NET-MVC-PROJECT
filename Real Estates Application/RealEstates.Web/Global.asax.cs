@@ -1,5 +1,6 @@
 ﻿namespace RealEstates.Web
 {
+    using System;
     using System.Reflection;
     using System.Web;
     using System.Web.Mvc;
@@ -23,6 +24,13 @@
 
             var autoMapperConfig = new AutoMapperConfig();
             autoMapperConfig.Execute(Assembly.GetExecutingAssembly());
+        }
+
+        protected void Application_Error(object sender, EventArgs e)
+        {
+            Exception exception = this.Server.GetLastError();
+            this.Server.ClearError();
+            this.Response.Redirect("/Home/Error");
         }
     }
 }
