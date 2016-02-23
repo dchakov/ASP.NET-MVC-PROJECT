@@ -3,9 +3,12 @@
     using Microsoft.AspNet.Identity;
     using Microsoft.AspNet.Identity.Owin;
     using Microsoft.Owin.Security;
+    using Newtonsoft.Json.Linq;
     using RealEstates.Model;
     using RealEstates.Web.ViewModels;
+    using Services.Web;
     using System.Linq;
+    using System.Net;
     using System.Threading.Tasks;
     using System.Web;
     using System.Web.Mvc;
@@ -19,6 +22,8 @@
         private ApplicationSignInManager signInManager;
 
         private ApplicationUserManager userManager;
+
+        private IReCaptchaServices reCaptchaServices = new ReCaptchaServices();
 
         public AccountController()
         {
@@ -166,7 +171,19 @@
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Register(RegisterViewModel model)
         {
-            if (this.ModelState.IsValid)
+            var capchaResponse = this.Request["g-recaptcha-response"];
+            const string secret = "6Ld59hcTAAAAAHxdn085kvoASAu65hC1bRysxLno";
+
+            var client = new WebClient();
+            var reply =
+                client.DownloadString(
+                    string.Format("https://www.google.com/recaptcha/api/siteverify?secret={0}&response={1}", secret, capchaResponse));
+
+            var obj = JObject.Parse(reply);
+
+            var isCapchaValid = (bool)obj.SelectToken("success");
+
+            if (this.ModelState.IsValid && isCapchaValid)
             {
                 var user = new User
                 {

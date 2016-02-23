@@ -137,9 +137,9 @@
             @Html.AntiForgeryToken()
 
             @Html.TextBoxFor(m => m.RealEstateId, new { hidden = "hidden" })
-            @Html.EditorFor(m => m.Content)
-            @Html.EditorFor(m => m.AuthorEmail)
-            <input type="submit" value="Post comment" class="btn btn-default" />
+            @Html.EditorFor(m => m.Content, new { htmlAttributes = new { placeholder = "Add a comment...", @class = "form-control col-md-12" } })
+            @Html.EditorFor(m => m.AuthorEmail, new { htmlAttributes = new { placeholder = "Add email", @class = "form-control col-md-12" } })
+            <input type="submit" value="Post comment" class="btn btn-info" />
         }
 
         @if (@Model.RealEstate.CommentsCount > 0)
