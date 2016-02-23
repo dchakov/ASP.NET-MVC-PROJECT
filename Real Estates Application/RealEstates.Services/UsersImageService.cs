@@ -1,10 +1,9 @@
 ﻿namespace RealEstates.Services
 {
-    using RealEstates.Services.Contracts;
     using System.Linq;
-    using RealEstates.Model;
     using Data.Repositories;
-    using System;
+    using RealEstates.Model;
+    using RealEstates.Services.Contracts;
 
     public class UsersImageService : IUsersImageService
     {

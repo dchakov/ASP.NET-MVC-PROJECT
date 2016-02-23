@@ -1,10 +1,10 @@
 ﻿namespace RealEstates.Services
 {
+    using System;
+    using System.Linq;
     using Contracts;
     using Data.Repositories;
     using Model;
-    using System;
-    using System.Linq;
     using Web;
 
     public class RealEstatesService : IRealEstatesService

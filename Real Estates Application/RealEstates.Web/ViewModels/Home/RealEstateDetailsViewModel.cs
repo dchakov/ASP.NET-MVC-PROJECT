@@ -1,10 +1,10 @@
 ﻿namespace RealEstates.Web.ViewModels.Home
 {
+    using System.Collections.Generic;
+    using System.ComponentModel.DataAnnotations;
     using Common.Constants;
     using RealEstates.Model;
     using Shared;
-    using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations;
 
     public class RealEstateDetailsViewModel
     {

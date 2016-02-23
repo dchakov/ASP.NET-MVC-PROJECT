@@ -1,13 +1,13 @@
 ﻿namespace RealEstates.Web.Controllers
 {
-    using Microsoft.AspNet.Identity;
-    using Model;
-    using Ninject;
-    using Services.Contracts;
     using System.IO;
     using System.Linq;
     using System.Web;
     using System.Web.Mvc;
+    using Microsoft.AspNet.Identity;
+    using Model;
+    using Ninject;
+    using Services.Contracts;
 
     public class UserProfilePersonalController : BaseController
     {

@@ -1,10 +1,5 @@
 ﻿namespace RealEstates.Web.Controllers
 {
-    using Microsoft.AspNet.Identity;
-    using Ninject;
-    using RealEstates.Model;
-    using RealEstates.Services.Contracts;
-    using RealEstates.Web.ViewModels.UserM;
     using System;
     using System.Collections.Generic;
     using System.IO;
@@ -12,6 +7,12 @@
     using System.Net;
     using System.Web;
     using System.Web.Mvc;
+
+    using Microsoft.AspNet.Identity;
+    using Ninject;
+    using RealEstates.Model;
+    using RealEstates.Services.Contracts;
+    using RealEstates.Web.ViewModels.UserM;
 
     public class UserProfileController : BaseController
     {

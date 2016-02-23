@@ -4,10 +4,10 @@
     using System.Web.Mvc;
     using Kendo.Mvc.Extensions;
     using Kendo.Mvc.UI;
-    using RealEstates.Model;
-    using Web.Controllers;
     using Ninject;
+    using RealEstates.Model;
     using Services.Contracts;
+    using Web.Controllers;
 
     public class CommentsController : BaseController
     {
@@ -22,7 +22,9 @@
         public ActionResult Comments_Read([DataSourceRequest]DataSourceRequest request)
         {
             IQueryable<Comment> comments = this.CommentsService.GetAll();
-            DataSourceResult result = comments.ToDataSourceResult(request, comment => new
+            DataSourceResult result = comments.ToDataSourceResult(
+                request,
+                comment => new
             {
                 Id = comment.Id,
                 Content = comment.Content,

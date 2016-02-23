@@ -1,12 +1,12 @@
 ﻿namespace RealEstates.Web
 {
-    using RealEstates.Web.App_Start;
-    using RealEstates.Web.Infrastructure.Mapping;
     using System.Reflection;
     using System.Web;
     using System.Web.Mvc;
     using System.Web.Optimization;
     using System.Web.Routing;
+    using RealEstates.Web.App_Start;
+    using RealEstates.Web.Infrastructure.Mapping;
 
     public class MvcApplication : HttpApplication
     {

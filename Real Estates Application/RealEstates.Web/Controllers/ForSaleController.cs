@@ -1,14 +1,14 @@
 ﻿namespace RealEstates.Web.Controllers
 {
-    using Infrastructure.Mapping;
-    using Model;
-    using Ninject;
-    using RealEstates.Services.Contracts;
     using System;
     using System.Collections.Generic;
     using System.Linq;
     using System.Net;
     using System.Web.Mvc;
+    using Infrastructure.Mapping;
+    using Model;
+    using Ninject;
+    using RealEstates.Services.Contracts;
     using ViewModels.ForSale;
     using ViewModels.Home;
 

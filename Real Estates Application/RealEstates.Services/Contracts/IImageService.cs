@@ -1,7 +1,7 @@
 ﻿namespace RealEstates.Services.Contracts
 {
-    using RealEstates.Model;
     using System.Linq;
+    using RealEstates.Model;
 
     public interface IImageService
     {

@@ -1,7 +1,7 @@
 ﻿namespace RealEstates.Web
 {
-    using RealEstates.Web.Infrastructure.Filters;
     using System.Web.Mvc;
+    using RealEstates.Web.Infrastructure.Filters;
 
     public class FilterConfig
     {

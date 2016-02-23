@@ -1,5 +1,10 @@
 ﻿namespace RealEstates.Web.Controllers
 {
+    using System.Linq;
+    using System.Net;
+    using System.Threading.Tasks;
+    using System.Web;
+    using System.Web.Mvc;
     using Microsoft.AspNet.Identity;
     using Microsoft.AspNet.Identity.Owin;
     using Microsoft.Owin.Security;
@@ -7,11 +12,6 @@
     using RealEstates.Model;
     using RealEstates.Web.ViewModels;
     using Services.Web;
-    using System.Linq;
-    using System.Net;
-    using System.Threading.Tasks;
-    using System.Web;
-    using System.Web.Mvc;
 
     [Authorize]
     public class AccountController : BaseController
@@ -23,7 +23,7 @@
 
         private ApplicationUserManager userManager;
 
-        private IReCaptchaServices reCaptchaServices = new ReCaptchaServices();
+        private IReCaptchaServices captchaServices = new ReCaptchaServices();
 
         public AccountController()
         {
@@ -172,12 +172,12 @@
         public async Task<ActionResult> Register(RegisterViewModel model)
         {
             var capchaResponse = this.Request["g-recaptcha-response"];
-            const string secret = "6Ld59hcTAAAAAHxdn085kvoASAu65hC1bRysxLno";
+            const string Secret = "6Ld59hcTAAAAAHxdn085kvoASAu65hC1bRysxLno";
 
             var client = new WebClient();
             var reply =
                 client.DownloadString(
-                    string.Format("https://www.google.com/recaptcha/api/siteverify?secret={0}&response={1}", secret, capchaResponse));
+                    string.Format("https://www.google.com/recaptcha/api/siteverify?secret={0}&response={1}", Secret, capchaResponse));
 
             var obj = JObject.Parse(reply);
 

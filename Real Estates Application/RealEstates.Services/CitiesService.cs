@@ -1,9 +1,9 @@
 ﻿namespace RealEstates.Services
 {
+    using System.Linq;
     using Data.Repositories;
     using Model;
     using RealEstates.Services.Contracts;
-    using System.Linq;
 
     public class CitiesService : ICitiesService
     {

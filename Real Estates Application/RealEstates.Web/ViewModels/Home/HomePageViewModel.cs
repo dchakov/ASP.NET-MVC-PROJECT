@@ -1,7 +1,7 @@
 ﻿namespace RealEstates.Web.ViewModels.Home
 {
-    using RealEstates.Web.ViewModels.UserM;
     using System.Collections.Generic;
+    using RealEstates.Web.ViewModels.UserM;
 
     public class HomePageViewModel
     {

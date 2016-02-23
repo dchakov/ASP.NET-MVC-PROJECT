@@ -1,8 +1,8 @@
 ﻿namespace RealEstates.Web.App_Start
 {
+    using System.Data.Entity;
     using Data;
     using Data.Migrations;
-    using System.Data.Entity;
 
     public class DbConfig
     {

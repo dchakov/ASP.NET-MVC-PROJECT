@@ -2,12 +2,12 @@
 {
     using System.Linq;
     using System.Web.Mvc;
+    using Infrastructure.Mapping;
     using Kendo.Mvc.Extensions;
     using Kendo.Mvc.UI;
-    using RealEstates.Model;
     using Ninject;
+    using RealEstates.Model;
     using Services.Contracts;
-    using Infrastructure.Mapping;
     using ViewModels;
     using Web.Controllers;
 

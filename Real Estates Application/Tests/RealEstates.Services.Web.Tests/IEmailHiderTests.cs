@@ -9,27 +9,27 @@
         [TestMethod]
         public void EmailShouldBeHideCorrectly()
         {
-            const string email = "pesho@gmail.com";
+            const string Email = "pesho@gmail.com";
             IEmailHider emailHider = new EmailHider();
-            var actual = emailHider.HideEmail(email);
+            var actual = emailHider.HideEmail(Email);
             Assert.AreEqual("pes**@gma**.com", actual);
         }
 
         [TestMethod]
         public void EmailShoudNotHideWHenThreeSymbolsInUsername()
         {
-            const string email = "pes@gmail.com";
+            const string Email = "pes@gmail.com";
             IEmailHider emailHider = new EmailHider();
-            var actual = emailHider.HideEmail(email);
+            var actual = emailHider.HideEmail(Email);
             Assert.AreEqual("pes@gma**.com", actual);
         }
 
         [TestMethod]
         public void EmailShoudNotHideWHenThreeSymbolsInDomain()
         {
-            const string email = "pesho@abv.bg";
+            const string Email = "pesho@abv.bg";
             IEmailHider emailHider = new EmailHider();
-            var actual = emailHider.HideEmail(email);
+            var actual = emailHider.HideEmail(Email);
             Assert.AreEqual("pes**@abv.bg", actual);
         }
     }

@@ -1,7 +1,7 @@
 ﻿namespace RealEstates.Web.Helpers
 {
-    using RealEstates.Common.Constants;
     using System.Security.Principal;
+    using RealEstates.Common.Constants;
 
     public static class PrincipalExtensions
     {

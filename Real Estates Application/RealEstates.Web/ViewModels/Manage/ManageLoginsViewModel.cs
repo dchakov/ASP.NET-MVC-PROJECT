@@ -1,8 +1,8 @@
 ﻿namespace RealEstates.Web.ViewModels
 {
+    using System.Collections.Generic;
     using Microsoft.AspNet.Identity;
     using Microsoft.Owin.Security;
-    using System.Collections.Generic;
 
     public class ManageLoginsViewModel
     {

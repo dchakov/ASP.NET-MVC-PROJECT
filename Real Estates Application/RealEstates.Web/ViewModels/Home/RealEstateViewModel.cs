@@ -1,12 +1,12 @@
 ﻿namespace RealEstates.Web.ViewModels.Home
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+    using AutoMapper;
     using Infrastructure.Mapping;
     using Model;
     using Services.Web;
-    using System;
-    using AutoMapper;
-    using System.Linq;
-    using System.Collections.Generic;
 
     public class RealEstateViewModel : IMapFrom<RealEstate>, IHaveCustomMappings
     {

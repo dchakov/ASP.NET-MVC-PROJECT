@@ -1,11 +1,11 @@
 ﻿namespace RealEstates.Web.Controllers
 {
-    using Infrastructure.Mapping;
-    using Ninject;
-    using Services.Contracts;
     using System.Collections.Generic;
     using System.Linq;
     using System.Web.Mvc;
+    using Infrastructure.Mapping;
+    using Ninject;
+    using Services.Contracts;
     using ViewModels.Home;
     using ViewModels.UserM;
 
@@ -25,7 +25,9 @@
             IEnumerable<CityViewModel> cities = this.Cache.Get(
                 "cities",
                 () => this.CitiesService.GetMostPopular()
-                .To<CityViewModel>().ToList(), 15 * 60);
+                .To<CityViewModel>()
+                .ToList(),
+                15 * 60);
 
             IEnumerable<UserViewModel> users = this.UsersService.GetMostPopularAgents()
                 .To<UserViewModel>().ToList();

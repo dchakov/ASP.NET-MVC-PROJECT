@@ -1,10 +1,10 @@
 ﻿namespace RealEstates.Web.Controllers
 {
+    using System.Web.Mvc;
     using AutoMapper;
     using Infrastructure.Mapping;
     using Ninject;
     using Services.Web;
-    using System.Web.Mvc;
 
     public abstract class BaseController : Controller
     {

@@ -1,8 +1,8 @@
 ﻿namespace RealEstates.Web.Areas.Administration.ViewModels
 {
+    using System.ComponentModel.DataAnnotations;
     using RealEstates.Model;
     using RealEstates.Web.Infrastructure.Mapping;
-    using System.ComponentModel.DataAnnotations;
 
     public class UserViewModel : IMapFrom<User>
     {

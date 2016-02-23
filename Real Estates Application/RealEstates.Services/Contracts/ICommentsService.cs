@@ -1,7 +1,7 @@
 ﻿namespace RealEstates.Services.Contracts
 {
-    using Model;
     using System.Linq;
+    using Model;
 
     public interface ICommentsService
     {

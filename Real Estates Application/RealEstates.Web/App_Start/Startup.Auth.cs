@@ -1,5 +1,6 @@
 ﻿namespace RealEstates.Web
 {
+    using System;
     using Microsoft.AspNet.Identity;
     using Microsoft.AspNet.Identity.Owin;
     using Microsoft.Owin;
@@ -7,7 +8,6 @@
     using Owin;
     using RealEstates.Data;
     using RealEstates.Model;
-    using System;
 
     public partial class Startup
     {

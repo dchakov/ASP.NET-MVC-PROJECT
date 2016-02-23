@@ -1,8 +1,8 @@
 ﻿namespace RealEstates.Model
 {
-    using Common.Constants;
     using System;
     using System.ComponentModel.DataAnnotations;
+    using Common.Constants;
 
     public class Comment
     {

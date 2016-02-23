@@ -1,17 +1,17 @@
 ﻿namespace RealEstates.Web.Controllers
 {
-    using Ninject;
-    using RealEstates.Model;
-    using RealEstates.Services.Contracts;
-    using RealEstates.Web.Infrastructure.Mapping;
-    using RealEstates.Web.ViewModels.ForRent;
-    using RealEstates.Web.ViewModels.Home;
     using System;
     using System.Collections.Generic;
     using System.Linq;
     using System.Net;
     using System.Web;
     using System.Web.Mvc;
+    using Ninject;
+    using RealEstates.Model;
+    using RealEstates.Services.Contracts;
+    using RealEstates.Web.Infrastructure.Mapping;
+    using RealEstates.Web.ViewModels.ForRent;
+    using RealEstates.Web.ViewModels.Home;
 
     public class ForRentController : BaseController
     {

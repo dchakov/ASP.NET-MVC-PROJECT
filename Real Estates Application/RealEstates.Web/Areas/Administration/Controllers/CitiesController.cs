@@ -1,13 +1,13 @@
 ﻿namespace RealEstates.Web.Areas.Administration.Controllers
 {
+    using System.Linq;
+    using System.Web.Mvc;
     using Kendo.Mvc.Extensions;
     using Kendo.Mvc.UI;
     using Ninject;
     using RealEstates.Model;
     using RealEstates.Services.Contracts;
     using RealEstates.Web.Controllers;
-    using System.Linq;
-    using System.Web.Mvc;
 
     public class CitiesController : BaseController
     {
@@ -22,7 +22,9 @@
         public ActionResult Cities_Read([DataSourceRequest]DataSourceRequest request)
         {
             IQueryable<City> cities = this.CitiesService.GetAll();
-            DataSourceResult result = cities.ToDataSourceResult(request, city => new
+            DataSourceResult result = cities.ToDataSourceResult(
+                request,
+                city => new
             {
                 Id = city.Id,
                 Name = city.Name
