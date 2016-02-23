@@ -67,7 +67,7 @@
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult CreateRealEstate(
-            [Bind(Include = "Id,Title,Description,Address,Contact,ConstructionYear,SellingPrice,RentingPrice,Type,CreatedOn,Bedrooms,SquareMeter,UserId,CityId")] RealEstate realEstate,
+            [Bind(Include = "Id,Title,Description,Address,Contact,ConstructionYear,SellingPrice,RentingPrice,Type,CreatedOn,Bedrooms,Bathrooms,SquareMeter,UserId,CityId")] RealEstate realEstate,
             IEnumerable<HttpPostedFileBase> files)
         {
             if (this.ModelState.IsValid)

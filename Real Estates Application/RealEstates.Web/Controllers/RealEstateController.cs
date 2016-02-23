@@ -78,6 +78,8 @@
             return this.View(viewModel);
         }
 
+        [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult AddComment(RealEstateDetailsViewModel model)
         {
             if (!this.ModelState.IsValid)
@@ -92,8 +94,6 @@
             }
 
             var user = this.UserService.GetByUserId(userId);
-
-            string currentIp = this.Request.ServerVariables["REMOTE_ADDR"];
             this.CommentsService.Create(model.Content, user.Email, userId, model.RealEstateId);
 
             return this.RedirectToAction("RealEstateById", new { id = this.identifier.EncodeId(model.RealEstateId) });
