@@ -5,7 +5,7 @@
         public const int DefaultCommentTake = 10;
         public const int DefaultCommentSkip = 0;
 
-        public const int ContentMinLength = 10;
-        public const int ContentMaxLength = 500;
+        public const int ContentMinLength = 5;
+        public const int ContentMaxLength = 2500;
     }
 }
