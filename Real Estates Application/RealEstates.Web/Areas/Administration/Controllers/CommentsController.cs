@@ -1,12 +1,13 @@
 ﻿namespace RealEstates.Web.Areas.Administration.Controllers
 {
-    using System.Linq;
     using System.Web.Mvc;
+    using Infrastructure.Mapping;
     using Kendo.Mvc.Extensions;
     using Kendo.Mvc.UI;
     using Ninject;
     using RealEstates.Model;
     using Services.Contracts;
+    using ViewModels;
     using Web.Controllers;
 
     public class CommentsController : BaseController
@@ -21,17 +22,11 @@
 
         public ActionResult Comments_Read([DataSourceRequest]DataSourceRequest request)
         {
-            IQueryable<Comment> comments = this.CommentsService.GetAll();
-            DataSourceResult result = comments.ToDataSourceResult(
-                request,
-                comment => new
-            {
-                Id = comment.Id,
-                Content = comment.Content,
-                CreatedOn = comment.CreatedOn,
-            });
+            DataSourceResult result = this.CommentsService.GetAll()
+                .To<CommentAdminViewModel>()
+                .ToDataSourceResult(request);
 
-            return this.Json(result);
+            return this.Json(result, JsonRequestBehavior.AllowGet);
         }
 
         [AcceptVerbs(HttpVerbs.Post)]
@@ -40,7 +35,9 @@
             if (this.ModelState.IsValid)
             {
                 var entity = this.CommentsService.GetById(comment.Id);
+                entity.AuthorEmail = comment.AuthorEmail;
                 entity.Content = comment.Content;
+                this.CommentsService.UpdateComment(entity);
                 this.CommentsService.SaveChanges();
             }
 

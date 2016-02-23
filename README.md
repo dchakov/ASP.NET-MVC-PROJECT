@@ -3,7 +3,7 @@
 This document describes the **final project assignment** for the **ASP.NET MVC** course at Telerik Academy.
 
 ## Build status
-[![Build status](https://ci.appveyor.com/api/projects/status/1fmtvbih1v6jtv6v?svg=true)](https://ci.appveyor.com/project/dchakov/asp-net-mvc-project/branch/master)
+[![Build status](https://ci.appveyor.com/api/projects/status/1fmtvbih1v6jtv6v?svg=true)](https://ci.appveyor.com/project/dchakov/asp-net-mvc-project)
 
 ## Project Description
 

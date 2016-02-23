@@ -1,22 +1,21 @@
 ﻿@using Kendo.Mvc.UI
-@(Html.Kendo().Grid<RealEstates.Model.Comment>()
+@(Html.Kendo().Grid<RealEstates.Web.Areas.Administration.ViewModels.CommentAdminViewModel>()
       .Name("grid")
       .Columns(columns =>
       {
           columns.Bound(c => c.Content);
-          columns.Bound(c => c.User.Name);
-          columns.Bound(c => c.CreatedOn);
+          columns.Bound(c => c.RealEstateId);
+          columns.Bound(c => c.AuthorEmail);
+          columns.Bound(c => c.CreatedOn).Format("{0:yyyy-MM-dd HH:mm}");
           columns.Command(command => { command.Edit(); command.Destroy(); }).Width(180);
       })
       .ColumnMenu()
       .Editable(editable => editable.Mode(GridEditMode.InLine))
       .Pageable()
-      .Navigatable()
       .Sortable(sortable => {
           sortable.SortMode(GridSortMode.SingleColumn);
       })
       .Filterable()
-      .Scrollable()
       .DataSource(dataSource => dataSource
           .Ajax()
           .Model(model => model.Id(p => p.Id))

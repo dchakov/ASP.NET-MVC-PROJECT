@@ -57,7 +57,8 @@
 
         public IQueryable<Comment> GetAll()
         {
-            return this.comments.All();
+            return this.comments.All()
+                .OrderByDescending(c => c.CreatedOn);
         }
 
         public void SaveChanges()
@@ -101,6 +102,11 @@
             this.comments.SaveChanges();
 
             return comment;
+        }
+
+        public void UpdateComment(Comment entity)
+        {
+            this.comments.Update(entity);
         }
     }
 }

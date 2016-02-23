@@ -269,6 +269,7 @@
     <Compile Include="Areas\Administration\Controllers\RealEstatesController.cs" />
     <Compile Include="Areas\Administration\Controllers\UsersController.cs" />
     <Compile Include="Areas\Administration\Helpers\AdminMenu.cs" />
+    <Compile Include="Areas\Administration\ViewModels\CommentAdminViewModel.cs" />
     <Compile Include="Areas\Administration\ViewModels\RealEstateAdminViewModel.cs" />
     <Compile Include="Areas\Administration\ViewModels\UserViewModel.cs" />
     <Compile Include="Controllers\AccountController.cs" />
