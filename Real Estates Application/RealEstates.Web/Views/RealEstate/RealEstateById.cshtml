@@ -8,11 +8,16 @@
 
 <div>
     <hr />
-    <div class="row">
+   
+    @Html.Partial("_BootstrapImageGalery")
+
+    <div class="row" id="links">
         @foreach (var item in Model.Images)
         {
             <div class="col-md-4">
-                <img src="@Url.Content(item.ImageUrl)" alt="Alternate Text" width="100%" />
+                <a href="@Url.Content(item.ImageUrl)" title="@item.FileName">
+                    <img src="@Url.Content(item.ImageUrl)" alt="Alternate Text" width="100%" />
+                    </a>
             </div>
         }
     </div>
@@ -173,7 +178,7 @@
 
                 @for (int i = 1; i <= Model.TotalCommentPages; i++)
                 {
-                    <li @if (Model.CurrentCommentPage == i) { <text> class="active" </text>        }>
+                    <li @if (Model.CurrentCommentPage == i) { <text> class="active" </text>         }>
                         <a href="/suggestions/@Model.RealEstate.Url?page=@i.ToString()">@i.ToString()</a>
                     </li>
                 }

@@ -21,7 +21,8 @@
         culture.calendar.patterns.g = "dd MMM yyyy HH:mm";
         culture.calendar.patterns.G = "dd MMM yyyy HH:mm";
     </script>
-    
+    <link rel="stylesheet" href="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/south-street/jquery-ui.css" id="theme">
+    <link rel="stylesheet" href="//blueimp.github.io/Gallery/css/blueimp-gallery.min.css">
 </head>
 <body>
     <div class="navbar navbar-inverse navbar-fixed-top">
@@ -66,8 +67,21 @@
             <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
         </footer>
     </div>
-   
+
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)
+    <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+    <script src="//blueimp.github.io/Gallery/js/jquery.blueimp-gallery.min.js"></script>
+    <script src="~/Scripts/js/jquery.image-gallery.min.js"></script>
+    <script>
+        document.getElementById('links').onclick = function (event) {
+            event = event || window.event;
+            var target = event.target || event.srcElement,
+                link = target.src ? target.parentNode : target,
+                options = { index: link, event: event },
+                links = this.getElementsByTagName('a');
+            blueimp.Gallery(links, options);
+        };
+    </script>
 </body>
 </html>

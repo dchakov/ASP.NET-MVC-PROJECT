@@ -424,6 +424,9 @@
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\js\demo.js" />
+    <Content Include="Scripts\js\jquery.image-gallery.js" />
+    <Content Include="Scripts\js\jquery.image-gallery.min.js" />
     <Content Include="Scripts\KendoUI\kendo.all.min.js" />
     <Content Include="Scripts\KendoUI\kendo.aspnetmvc.min.js" />
     <Content Include="Scripts\respond.js" />
@@ -477,6 +480,8 @@
     <Content Include="Views\UserProfilePersonal\Index.cshtml" />
     <Content Include="Views\Shared\_RealEstateComments.cshtml" />
     <Content Include="Views\Home\Error.cshtml" />
+    <Content Include="Scripts\js\jquery.image-gallery.min.js.map" />
+    <Content Include="Views\Shared\_BootstrapImageGalery.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
