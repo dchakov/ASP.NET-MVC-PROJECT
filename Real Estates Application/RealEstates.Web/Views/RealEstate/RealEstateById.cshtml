@@ -8,7 +8,7 @@
 
 <div>
     <hr />
-   
+
     @Html.Partial("_BootstrapImageGalery")
 
     <div class="row" id="links">
@@ -17,7 +17,7 @@
             <div class="col-md-4">
                 <a href="@Url.Content(item.ImageUrl)" title="@item.FileName">
                     <img src="@Url.Content(item.ImageUrl)" alt="Alternate Text" width="100%" />
-                    </a>
+                </a>
             </div>
         }
     </div>
@@ -178,7 +178,7 @@
 
                 @for (int i = 1; i <= Model.TotalCommentPages; i++)
                 {
-                    <li @if (Model.CurrentCommentPage == i) { <text> class="active" </text>         }>
+                    <li @if (Model.CurrentCommentPage == i) { <text> class="active" </text>          }>
                         <a href="/suggestions/@Model.RealEstate.Url?page=@i.ToString()">@i.ToString()</a>
                     </li>
                 }
@@ -193,4 +193,17 @@
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
+}
+
+@section SlideShow {
+    <script>
+        document.getElementById('links').onclick = function (event) {
+            event = event || window.event;
+            var target = event.target || event.srcElement,
+                link = target.src ? target.parentNode : target,
+                options = { index: link, event: event },
+                links = this.getElementsByTagName('a');
+            blueimp.Gallery(links, options);
+        };
+    </script>
 }
