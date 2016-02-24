@@ -5,6 +5,9 @@ This document describes the **final project assignment** for the **ASP.NET MVC**
 ## Build status
 [![Build status](https://ci.appveyor.com/api/projects/status/1fmtvbih1v6jtv6v?svg=true)](https://ci.appveyor.com/project/dchakov/asp-net-mvc-project)
 
+## AZURE DEPLOYMENT
+[http://realestatesweb.azurewebsites.net/](http://realestatesweb.azurewebsites.net/)
+
 ## Project Description
 
 Design and implement an **ASP.NET MVC application**. It can be a discussion forum, blog system, e-commerce site, online gaming site, social network, or any other web application by your choice.
